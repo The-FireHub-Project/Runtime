@@ -1,0 +1,66 @@
+{
+  "name": "the-firehub-project/runtime",
+  "description": "Lightweight PHP runtime layer providing clean wrapper functions over native PHP.",
+  "type": "library",
+  "keywords": ["php", "runtime", "foundation", "firehub"],
+  "homepage": "https://the-firehub-project.github.io/runtime",
+  "license": "Apache-2.0",
+  "require": {
+    "php": "^8.5"
+  },
+  "require-dev": {
+    "the-firehub-project/core-standard": "dev-develop",
+
+    "phpstan/phpstan": "^2.0",
+    "the-firehub-project/phpstan-rules": "dev-develop",
+
+    "the-firehub-project/testing": "dev-develop"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "FireHub\\Runtime\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "FireHub\\Tests\\Runtime\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Danijel Galić",
+      "email": "danijel.galic@outlook.com",
+      "homepage": "https://github.com/dieselxxx",
+      "role": "Owner"
+    }
+  ],
+  "support": {
+    "email": "danijel.galic@outlook.com",
+    "issues": "https://github.com/The-FireHub-Project/Runtime/issues",
+    "forum": "https://github.com/orgs/The-FireHub-Project/discussions",
+    "wiki": "https://github.com/The-FireHub-Project/Runtime/wiki",
+    "source": "https://github.com/The-FireHub-Project/Runtime",
+    "docs": "https://the-firehub-project.github.io/Runtime",
+    "security": "https://github.com/The-FireHub-Project/Runtime/security/policy"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/The-FireHub-Project"
+    }
+  ],
+  "config": {
+    "prepend-autoloader": false,
+    "optimize-autoloader": true,
+    "platform-check": true
+  },
+  "extra": {
+    "firehub": {
+      "layer": "runtime",
+      "edition": "standard",
+      "role": "execution",
+      "criticality": "medium"
+    }
+  }
+}
