@@ -27,19 +27,19 @@
 [![Codecov](https://codecov.io/gh/The-FireHub-Project/Runtime/branch/develop/graph/badge.svg?token=XW2YEONF51)](https://app.codecov.io/gh/The-FireHub-Project/Runtime/tree/develop)
 
 <p>
-  <a href="https://github.com/The-FireHub-Project/Runtime/commits/develop/">
+  <a href="https://github.com/The-FireHub-Project/Runtime/commits/feature/runtime-wrapper-core/">
     <img
-      src="https://img.shields.io/github/last-commit/The-FireHub-Project/Runtime/develop?style=flat&logo=github&logoColor=959da5&label=last%20commit%20(branch)&labelColor=31373e"
+      src="https://img.shields.io/github/last-commit/The-FireHub-Project/Runtime/feature/runtime-wrapper-core?style=flat&logo=github&logoColor=959da5&label=last%20commit%20(branch)&labelColor=31373e"
       alt="GitHub last commit (branch)"
   /></a>
-  <a href="https://github.com/The-FireHub-Project/Runtime/commits/develop/">
+  <a href="https://github.com/The-FireHub-Project/Runtime/commits/feature/runtime-wrapper-core/">
     <img
-      src="https://img.shields.io/github/commit-activity/m/The-FireHub-Project/Runtime/develop?style=flat&logo=github&logoColor=959da5&label=commit%20activity%20(branch)&labelColor=31373e"
+      src="https://img.shields.io/github/commit-activity/m/The-FireHub-Project/Runtime/feature/runtime-wrapper-core?style=flat&logo=github&logoColor=959da5&label=commit%20activity%20(branch)&labelColor=31373e"
       alt="GitHub activity (branch)"
   /></a>
-  <a href="https://github.com/The-FireHub-Project/Runtime/compare/master...develop/">
+  <a href="https://github.com/The-FireHub-Project/Runtime/compare/develop...feature/runtime-wrapper-core/">
     <img
-      src="https://img.shields.io/github/commits-difference/The-FireHub-Project/Runtime?base=master&head=develop&style=flat&logo=github&logoColor=959da5&label=ahead%20master&labelColor=31373e"
+      src="https://img.shields.io/github/commits-difference/The-FireHub-Project/Runtime?base=develop&head=feature/runtime-wrapper-core&style=flat&logo=github&logoColor=959da5&label=ahead%20develop&labelColor=31373e"
       alt="GitHub commit difference between two branches"
   /></a>
 </p>
@@ -52,47 +52,55 @@ It contains no domain logic, no business rules, and no framework coupling. Its r
 
 ---
 
-## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Development Branch
+## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Runtime Wrapper Core – Development Branch
 
-⚠️ **This is the `develop` branch**
+⚠️ **This is the `development` branch**
 
 - Unstable
 - APIs may change without notice
 - Not intended for production use
 
+### Related
+
+- Target Release: **v0.0.0**
+- Repository: FireHub Runtime Foundation
+
+### Pull request
+
+<p>
+  <a href="https://github.com/The-FireHub-Project/Runtime/pull/2/">
+    <img
+      src="https://img.shields.io/github/pulls/detail/title/The-FireHub-Project/Runtime/2?style=flat&logo=github&logoColor=959da5&label=title&labelColor=31373e"
+      alt="GitHub pull request title"
+  /></a>
+  <a href="https://github.com/The-FireHub-Project/Runtime/pull/2/">
+    <img
+      src="https://img.shields.io/github/pulls/detail/author/The-FireHub-Project/Runtime/2?style=flat&logo=github&logoColor=959da5&labelColor=31373e"
+      alt="GitHub pull request author"
+  /></a>
+  <a href="https://github.com/The-FireHub-Project/Runtime/pull/2/">
+    <img
+      src="https://img.shields.io/github/pulls/detail/age/The-FireHub-Project/Runtime/2?style=flat&logo=github&logoColor=959da5&labelColor=31373e"
+      alt="GitHub pull request created"
+  /></a>
+  <a href="https://github.com/The-FireHub-Project/Runtime/pull/2/">
+    <img
+      src="https://img.shields.io/github/pulls/detail/comments/The-FireHub-Project/Runtime/2?style=flat&logo=github&logoColor=959da5&labelColor=31373e"
+      alt="GitHub pull request comments"
+  /></a>
+</p>
+
 ## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Branch Purpose
 
-The `develop` branch is the **primary integration branch** for all ongoing development.
+Establish the initial PHP runtime wrapper layer by introducing the core utility classes that provide clean, consistent, and deterministic abstractions over native PHP functionality.
 
-It serves as the staging area where:
-- Feature branches are merged
-- Bug fixes are integrated
-- Experimental work is stabilized
-- Code is prepared for upcoming releases
+## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Architectural Goal
 
-All **release branches** are created **from `develop`**.
+Create a lightweight, dependency-free execution layer that standardizes interaction with PHP built-in functions while maintaining predictable behavior, high performance, and a consistent API across the FireHub ecosystem.
 
-## Stability Guarantee
+## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Core Concept
 
-❌ No backward compatibility guarantee  
-❌ APIs may change without notice  
-❌ Behavior may be incomplete or inconsistent  
-❌ Breaking changes are expected
-
-This branch is intended **only for contributors and advanced testers**.
-
-## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Composer Usage (Not Recommended)
-
-For internal testing only:
-
-```json
-{
-  "require": {
-    "the-firehub-project/runtime": "dev-develop"
-  }
-}
-```
-⚠️ Never use dev-develop in production.
+Native PHP functionality exposed through expressive, type-safe wrapper classes, providing a unified runtime API without introducing framework coupling or altering PHP semantics.
 
 ## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Authors and Contributors
 
