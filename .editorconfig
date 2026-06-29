@@ -1,0 +1,38 @@
+# EditorConfig helps maintain consistent coding styles across different editors and IDEs.
+# https://editorconfig.org/
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+insert_final_newline = false
+max_line_length = 120
+
+# PHP files
+[*.php]
+indent_size = 4
+
+# Text files
+[*.txt]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Twig files
+[*.twig]
+max_line_length = off
+
+[*.svg]
+max_line_length = off
+
+# ENV files
+[*.env]
+trim_trailing_whitespace = false

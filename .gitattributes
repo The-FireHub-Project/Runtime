@@ -1,0 +1,49 @@
+# Set default behavior to automatically normalize line endings
+* text=auto eol=lf
+
+# Enable keyword expansion for legacy identifiers
+* ident
+
+# Exclude files and folders from Git archive downloads
+/.github export-ignore
+/.editorconfig export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+
+# Explicit text file types
+*.php    text
+*.html   text
+*.css    text
+*.scss   text
+*.js     text
+*.ts     text
+*.txt    text
+*.md     text
+*.twig   text
+*.svg    text
+*.yml    text
+*.yaml   text
+*.json   text
+*.xml    text
+*.ini    text
+*.env    text
+*.cff    text
+*.sh     text
+
+# Binary files (do not modify line endings)
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.pdf    binary
+*.zip    binary
+*.phar   binary
+
+# GitHub-specific files
+.gitattributes text
+.gitignore     text
+.editorconfig  text
+
+# Composer lock file
+composer.lock text

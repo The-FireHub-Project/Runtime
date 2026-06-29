@@ -1,0 +1,16 @@
+# Repo-wide fallback
+* @The-FireHub-Project/admin-team
+
+# Changes to GitHub configuration files reviewed by maintainers team
+/.github/ @The-FireHub-Project/maintainers
+
+# CODEOWNERS file will be handled by the organization administrators
+/.github/CODEOWNERS @The-FireHub-Project/admin-team
+
+# Project configuration files reviewed by maintainers team
+.editorconfig @The-FireHub-Project/maintainers
+.gitattributes @The-FireHub-Project/maintainers
+.gitignore @The-FireHub-Project/maintainers
+
+# Licensing information reviewed and approved by legal team
+LICENSE @The-FireHub-Project/legal-team
