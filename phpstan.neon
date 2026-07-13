@@ -1,0 +1,6 @@
+includes:
+  - vendor/the-firehub-project/phpstan-rules/src/Config/base.neon
+
+parameters:
+  paths:
+    - src/
