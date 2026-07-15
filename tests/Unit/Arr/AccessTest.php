@@ -16,7 +16,7 @@ namespace FireHub\Tests\Runtime\Unit\Arr;
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\Arr;
 use FireHub\Runtime\Exception\ {
-    EmptyArrayException, InvalidRangeException
+    EmptyArrayException, InvalidRandomKeyCountException
 };
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Group, Small, TestWith
@@ -45,7 +45,7 @@ final class AccessTest extends FireHubTestCase {
     #[TestWith([false, 'x', [null, 2, 3]])]
     public function testKeyExists (bool $expected, int|string $key, array $array):void {
 
-        self::assertSame($expected, Arr\Access::keyExists($key, $array));
+        self::assertSame($expected, Arr\Access::keyExists($array, $key));
 
     }
 
@@ -220,7 +220,7 @@ final class AccessTest extends FireHubTestCase {
      * @param array<array-key, mixed> $array
      *
      * @throws \FireHub\Runtime\Exception\EmptyArrayException
-     * @throws \FireHub\Runtime\Exception\InvalidRangeException
+     * @throws \FireHub\Runtime\Exception\InvalidRandomKeyCountException
      *
      * @return void
      */
@@ -238,7 +238,7 @@ final class AccessTest extends FireHubTestCase {
      * @param positive-int $number
      *
      * @throws \FireHub\Runtime\Exception\EmptyArrayException
-     * @throws \FireHub\Runtime\Exception\InvalidRangeException
+     * @throws \FireHub\Runtime\Exception\InvalidRandomKeyCountException
      *
      * @return void
      */
@@ -261,7 +261,7 @@ final class AccessTest extends FireHubTestCase {
      * @param array<array-key, mixed> $array
      * @param positive-int $number
      *
-     * @throws \FireHub\Runtime\Exception\InvalidRangeException
+     * @throws \FireHub\Runtime\Exception\InvalidRandomKeyCountException
      *
      * @return void
      */
@@ -288,7 +288,7 @@ final class AccessTest extends FireHubTestCase {
     #[TestWith([[1, 1, 1, 2, 3], 10])]
     public function testRandomInvalidRange (array $array, int $number):void {
 
-        $this->expectException(InvalidRangeException::class);
+        $this->expectException(InvalidRandomKeyCountException::class);
 
         Arr\Access::random($array, $number);
 

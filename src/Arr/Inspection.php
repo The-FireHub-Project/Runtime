@@ -13,7 +13,7 @@
 
 namespace FireHub\Runtime\Arr;
 
-use FireHub\Runtime\Module;
+use FireHub\Core\Boundary\Runtime\NativeRuntime;
 use Countable;
 
 use const COUNT_NORMAL;
@@ -38,7 +38,7 @@ use function in_array;
  * This component contains no domain logic, no framework coupling, and no business rules.
  * @since 1.0.0
  */
-final class Inspection extends Module {
+final class Inspection extends NativeRuntime {
 
     /**
      * ### Checks if all array elements satisfy a callback function
@@ -96,7 +96,7 @@ final class Inspection extends Module {
      * If the value is a string, the comparison is done in a case-sensitive manner.
      * </p>
      *
-     * @return bool True if a value is found in the array, false otherwise.
+     * @return bool Returns true if the given value exists in the array using strict comparison.
      */
     public static function inArray (array $array, mixed $value):bool {
 
@@ -135,7 +135,8 @@ final class Inspection extends Module {
      * Array or Countable instance to count.
      * </p>
      * @param bool $recursive [optional] <p>
-     * Recursively count the array.<br>
+     * Recursively count the array.
+     *
      * This is particularly useful for counting all the elements of a multidimensional array.
      * </p>
      *

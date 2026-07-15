@@ -16,16 +16,16 @@ namespace FireHub\Runtime\Exception;
 use FireHub\Core\Exception\Runtime\InvalidArgumentException;
 
 /**
- * ### Represents a failure caused by an empty array provided to an operation that requires at least one element
+ * ### Represents a mismatch between array keys and values count
  * @since 1.0.0
  */
-final class EmptyArrayException extends InvalidArgumentException {
+final class ArrayKeysAndValuesCountMismatchException extends InvalidArgumentException {
 
     /**
      * @inheritDoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'The provided array must not be empty.';
+    protected const string DEFAULT_MESSAGE = 'The number of keys and values in the provided arrays must match.';
 
 }

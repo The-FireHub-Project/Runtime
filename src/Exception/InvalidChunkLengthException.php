@@ -16,18 +16,16 @@ namespace FireHub\Runtime\Exception;
 use FireHub\Core\Exception\Runtime\InvalidArgumentException;
 
 /**
- * #### Invalid Range FireHub Exception
- *
- * Represents a failure caused by a value that is outside the valid range.
+ * ### Represents an invalid chunk length
  * @since 1.0.0
  */
-final class InvalidRangeException extends InvalidArgumentException {
+final class InvalidChunkLengthException extends InvalidArgumentException {
 
     /**
      * @inheritDoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'The provided value is outside the valid range.';
+    protected const string DEFAULT_MESSAGE = 'The provided chunk length is invalid.';
 
 }

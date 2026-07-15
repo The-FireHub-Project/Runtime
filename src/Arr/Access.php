@@ -13,9 +13,9 @@
 
 namespace FireHub\Runtime\Arr;
 
-use FireHub\Runtime\Module;
+use FireHub\Core\Boundary\Runtime\NativeRuntime;
 use FireHub\Runtime\Exception\ {
-    EmptyArrayException, InvalidRangeException
+    EmptyArrayException, InvalidRandomKeyCountException
 };
 
 use function array_column;
@@ -32,7 +32,7 @@ use function array_search;
 use function array_values;
 
 /**
- * ## PHP Array Runtime Wrapper Utility - Access
+ * ### PHP Array Runtime Wrapper Utility - Access
  *
  * The Access class provides lightweight, deterministic wrappers for accessing and retrieving data from PHP arrays.
  *
@@ -43,7 +43,7 @@ use function array_values;
  * without introducing domain logic, framework coupling, or additional abstraction overhead.
  * @since 1.0.0
  */
-final class Access extends Module {
+final class Access extends NativeRuntime {
 
     /**
      * ### Checks if the given key or index exists in the array
@@ -52,11 +52,11 @@ final class Access extends Module {
      * Key can be any value possible for an array index.
      * @since 1.0.0
      *
-     * @param array-key $key <p>
-     * Key to check.
-     * </p>
      * @param array<array-key, mixed> $array <p>
      * An array with keys to check.
+     * </p>
+     * @param array-key $key <p>
+     * Key to check.
      * </p>
      *
      * @return bool True if the key exists in an array, false otherwise.
@@ -64,7 +64,7 @@ final class Access extends Module {
      * @note Method will search for the keys in the first dimension only.
      * Nested keys in multidimensional arrays will not be found.
      */
-    public static function keyExists (int|string $key, array $array):bool {
+    public static function keyExists (array $array, int|string $key):bool {
 
         return array_key_exists($key, $array);
 
@@ -72,6 +72,8 @@ final class Access extends Module {
 
     /**
      * ### Searches the array for a given value and returns the first corresponding key if successful
+     *
+     * Performs a strict comparison when searching for the value.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -111,21 +113,27 @@ final class Access extends Module {
      * @template TArray of array<array-key, mixed>
      *
      * @param array<array-key, TArray> $array <p>
-     * A multidimensional array (record set) from which to pull a column of values.<br>
-     * If an array of objects is provided, then public properties can be directly pulled.<br>
+     * A multidimensional array (record set) from which to pull a column of values.
+     *
+     * If an array of objects is provided, then public properties can be directly pulled.
+     *
      * In order for protected or private properties to be pulled, the class must implement both the __get() and
-     * __isset() magic methods.<br>
+     * __isset() magic methods.
      * </p>
      * @param TKey $key <p>
-     * The column of values to return.<br>
+     * The column of values to return.
+     *
      * This value may be an integer key of the column you wish to retrieve, or it may be a string key name for an
-     * associative array or property name.<br>
+     * associative array or property name.
+     *
      * It may also be null to return complete arrays or objects (this is useful together with $index to reindex the
-     * array).<br>
+     * array).
      * </p>
      * @param TIndex $index [optional] <p>
-     * The column to use as the index/keys for the returned array.<br>
-     * This value may be the integer key of the column, or it may be the string key name.<br>
+     * The column to use as the index/keys for the returned array.
+     *
+     * This value may be the integer key of the column, or it may be the string key name.
+     *
      * The value is cast as usual for array keys.
      * </p>
      *
@@ -225,8 +233,10 @@ final class Access extends Module {
     /**
      * ### Return all the keys or a subset of the keys for an array
      *
-     * Returns the keys, numeric, and string, from the $array.<br>
-     * If a $filter is specified, then only the keys for that value are returned.<br>
+     * Returns the keys, numeric, and string, from the $array.
+     *
+     * If a $filter is specified, then only the keys for that value are returned.
+     *
      * Otherwise, all the keys from the array are returned.
      * @since 1.0.0
      *
@@ -319,6 +329,8 @@ final class Access extends Module {
      * Picks one or more random entries out of an array and returns the key (or keys) of the random entries.
      * @since 1.0.0
      *
+     * @uses \FireHub\Runtime\Arr\Inspection::count() To check the number of requested random keys.
+     *
      * @template TKey of array-key
      *
      * @param non-empty-array<TKey, mixed> $array <p>
@@ -329,11 +341,12 @@ final class Access extends Module {
      * </p>
      *
      * @throws \FireHub\Runtime\Exception\EmptyArrayException If the input array is empty.
-     * @throws \FireHub\Runtime\Exception\InvalidRangeException If the number of requested random keys is less than
-     * one or exceeds the available array size.
+     * @throws \FireHub\Runtime\Exception\InvalidRandomKeyCountException If the number of requested random keys is less
+     * than one or exceeds the available array size.
      *
      * @return ($number is int<2, max> ? list<TKey> : TKey) When picking only one entry, the method returns the key
-     * for a random entry.<br>
+     * for a random entry.
+     *
      * Otherwise, an array of keys for the random entries is returned.
      *
      * @caution This function doesn't generate cryptographically secure values and mustn't be used for cryptographic
@@ -344,20 +357,20 @@ final class Access extends Module {
         if ($array === []) throw new EmptyArrayException;
 
         if ($number < 1) {
-            throw new InvalidRangeException(
+            throw new InvalidRandomKeyCountException(
                 'The number of requested random keys must be greater than zero.',
                 [
-                    'value' => $number,
+                    'number' => $number,
                     'minimum' => 1,
                 ]
             );
         }
 
-        if ($number > $maximum = count($array)) {
-            throw new InvalidRangeException(
+        if ($number > $maximum = Inspection::count($array)) {
+            throw new InvalidRandomKeyCountException(
                 'The number of requested random keys exceeds the available array size.',
                 [
-                    'value' => $number,
+                    'number' => $number,
                     'maximum' => $maximum,
                 ]
             );
