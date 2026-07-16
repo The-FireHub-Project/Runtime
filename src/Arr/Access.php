@@ -112,7 +112,7 @@ final class Access extends NativeRuntime {
      * @template TIndex of null|array-key
      * @template TArray of array<array-key, mixed>
      *
-     * @param array<array-key, TArray> $array <p>
+     * @param TArray $array <p>
      * A multidimensional array (record set) from which to pull a column of values.
      *
      * If an array of objects is provided, then public properties can be directly pulled.
