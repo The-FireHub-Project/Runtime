@@ -80,7 +80,7 @@ final class Compare extends NativeRuntime {
 
         if ($length < 0) return false;
 
-        return strncmp($string_1, $string_2, $length);
+        return strncmp($string_1, $string_2, $length) <=> 0;
 
     }
 
@@ -116,7 +116,7 @@ final class Compare extends NativeRuntime {
 
         if ($length < 0) return false;
 
-        return substr_compare($string_1, $string_2, $offset, $length, !$case_sensitive); // @phpstan-ignore return.type
+        return substr_compare($string_1, $string_2, $offset, $length, !$case_sensitive) <=> 0;
 
     }
 
