@@ -17,7 +17,7 @@ namespace FireHub\Tests\Runtime\DataProviders;
  * ### Array data provider
  * @since 1.0.0
  */
-class ArrDataProvider {
+final class ArrDataProvider {
 
     /**
      * @since 1.0.0
