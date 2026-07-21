@@ -13,23 +13,27 @@
 
 namespace FireHub\Tests\Runtime\Stubs;
 
-use Countable;
-
 /**
- * ### Countable class
+ * ### Filled class
  * @since 1.0.0
  */
-class CountableClass implements Countable {
+class FilledClass extends EmptyClass implements EmptyInterface {
+
+    /**
+     * @since 1.0.0
+     */
+    use EmptyTrait;
+
+    /**
+     * @since 1.0.0
+     */
+    public string $publicVar = 'foo';
 
     /**
      * @since 1.0.0
      *
-     * @return int
+     * @return void
      */
-    public function count ():int {
-
-        return 10;
-
-    }
+    public function publicMethod ():void {}
 
 }

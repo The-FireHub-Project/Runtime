@@ -13,23 +13,8 @@
 
 namespace FireHub\Tests\Runtime\Stubs;
 
-use Countable;
-
 /**
- * ### Countable class
+ * ### Normal interface
  * @since 1.0.0
  */
-class CountableClass implements Countable {
-
-    /**
-     * @since 1.0.0
-     *
-     * @return int
-     */
-    public function count ():int {
-
-        return 10;
-
-    }
-
-}
+interface EmptyInterface {}
