@@ -6,7 +6,8 @@
   "homepage": "https://the-firehub-project.github.io/runtime",
   "license": "Apache-2.0",
   "require": {
-    "php": "^8.5"
+    "php": "^8.5",
+    "ext-mbstring": "*"
   },
   "require-dev": {
     "the-firehub-project/core-standard": "dev-architecture/runtime-support",
