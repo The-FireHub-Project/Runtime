@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.3
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -88,25 +88,11 @@ final class Json extends NativeRuntime {
                         : $carry,
                     0
                 ) | Flag::THROW_ON_ERROR->value, $depth)
-                ?: throw new JsonEncodeException(
-                    'Failed to encode JSON.',
-                    [
-                        'value' => $value,
-                        'depth' => $depth,
-                        'flags' => $flags,
-                    ]
-                );
+                ?: throw new JsonEncodeException('Failed to encode JSON.');
 
         } catch (JsonException $error) {
 
-            throw new JsonEncodeException(
-                $error->getMessage(),
-                [
-                    'value' => $value,
-                    'depth' => $depth,
-                    'flags' => $flags,
-                ]
-            );
+            throw new JsonEncodeException(previous: $error);
 
         }
 
@@ -157,27 +143,11 @@ final class Json extends NativeRuntime {
                         : $carry,
                     0
                 ) | Flag::THROW_ON_ERROR->value)
-                ?: throw new JsonDecodeException(
-                    'Failed to decode JSON.',
-                    [
-                        'json' => $json,
-                        'as_array' => $as_array,
-                        'depth' => $depth,
-                        'flags' => $flags,
-                    ]
-                );
+                ?: throw new JsonDecodeException;
 
         } catch (JsonException $error) {
 
-            throw new JsonDecodeException(
-                $error->getMessage(),
-                [
-                    'json' => $json,
-                    'as_array' => $as_array,
-                    'depth' => $depth,
-                    'flags' => $flags,
-                ]
-            );
+            throw new JsonDecodeException(previous: $error);
 
         }
 

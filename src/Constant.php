@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.1
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -77,21 +77,9 @@ final class Constant extends NativeRuntime {
     public static function define (string $name, null|array|bool|float|int|string $value):true {
 
         return self::defined($name)
-            ? throw new ConstantAlreadyDefinedException(
-                'Constant already defined.',
-                [
-                    'name' => $name,
-                ]
-            )
+            ? throw new ConstantAlreadyDefinedException
             : (define($name, $value)
-                ?: throw new CannotDefineConstantException(
-                    'Failed to define constant.',
-                    [
-                        'name' => $name,
-                        'value' => $value,
-                    ]
-                )
-            );
+                ?: throw new CannotDefineConstantException);
 
     }
 
@@ -119,12 +107,7 @@ final class Constant extends NativeRuntime {
 
         return self::defined($name)
             ? constant($name)
-            : throw new UndefinedConstantException (
-                'Constant is not defined.',
-                [
-                    'name' => $name,
-                ]
-            );
+            : throw new UndefinedConstantException;
 
     }
 

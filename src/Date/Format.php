@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.0
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -86,13 +86,7 @@ final class Format extends NativeRuntime {
 
         return ($i_date = idate($format, $timestamp)) !== false
             ? $i_date
-            : throw new FailedToFormatTimestampAsIntException (
-                'Failed to format a Unix timestamp as integer.',
-                [
-                    'format' => $format,
-                    'timestamp' => $timestamp
-                ]
-            );
+            : throw new FailedToFormatTimestampAsIntException;
 
     }
 

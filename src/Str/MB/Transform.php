@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.3
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -191,14 +191,7 @@ final class Transform extends NativeRuntime {
     public static function convertEncoding (string $string, Encoding $to, ?Encoding $from = null):string {
 
         return mb_convert_encoding($string, $to->value, $from?->value)
-            ?: throw new EncodingConversionFailedException(
-                'Failed to convert string encoding',
-                [
-                    'string' => $string,
-                    'from' => $from?->value,
-                    'to' => $to->value,
-                ]
-            );
+            ?: throw new EncodingConversionFailedException;
 
     }
 

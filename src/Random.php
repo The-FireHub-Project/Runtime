@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.2
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -124,10 +124,6 @@ final class Random extends NativeRuntime {
 
             throw new SecureNumberException(
                 'Failed to generate a cryptographically secure random number.',
-                [
-                    'min' => $min,
-                    'max' => $max,
-                ],
                 previous: $e
             );
 
@@ -176,9 +172,6 @@ final class Random extends NativeRuntime {
 
             throw new SecureRandomBytesException(
                 'Failed to generate a cryptographically secure random string.',
-                [
-                    'length' => $length,
-                ],
                 previous: $e
             );
 

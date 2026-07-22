@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -51,7 +51,7 @@ final class Timezone extends NativeRuntime {
     public static function getDefault ():Zone {
 
         return Zone::tryFrom(date_default_timezone_get())
-            ?? throw new FailedToGetTimezoneException();
+            ?? throw new FailedToGetTimezoneException;
 
     }
 

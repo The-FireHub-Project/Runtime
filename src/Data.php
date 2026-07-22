@@ -127,32 +127,14 @@ final class Data extends NativeRuntime {
     public static function setType (mixed $value, Type $type):mixed {
 
         if ($type === Type::STRING && self::getType($value) === Type::ARRAY)
-            throw new ArrayToStringConversionException(
-                'Cannot convert array to string.',
-                [
-                    'value' => $value,
-                    'type' => $type,
-                ]
-            );
+            throw new ArrayToStringConversionException;
 
         if ($type === Type::RESOURCE || $type === Type::CLOSED_RESOURCE)
-            throw new ResourceTypeConversionException(
-                'Cannot convert resource to type.',
-                [
-                    'value' => $value,
-                    'type' => $type,
-                ]
-            );
+            throw new ResourceTypeConversionException('Cannot convert resource to type.');
 
         $result = settype($value, $type->value);
 
-        if (!$result) throw new FailedToConvertTypeException(
-            'Failed to convert value to type:.',
-            [
-                'value' => $value,
-                'type' => $type,
-            ]
-        );
+        if (!$result) throw new FailedToConvertTypeException('Failed to convert value to type.');
 
         return $value;
 
@@ -192,9 +174,6 @@ final class Data extends NativeRuntime {
 
             throw new CannotSerializeException(
                 'Failed to serialize value.',
-                [
-                    'value' => $value,
-                ],
                 previous: $error);
 
         }
@@ -230,14 +209,7 @@ final class Data extends NativeRuntime {
             ['allowed_classes' => $allowed_classes, 'max_depth' => $max_depth]) // @phpstan-ignore argument.type
         ) !== false
             ? $unserialized_data
-            : throw new CannotUnserializeException(
-                'Failed to unserialize data.',
-                [
-                    'data' => $data,
-                    'allowed_classes' => $allowed_classes,
-                    'max_depth' => $max_depth,
-                ],
-            );
+            : throw new CannotUnserializeException;
 
     }
 

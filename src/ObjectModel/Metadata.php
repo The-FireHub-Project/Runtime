@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -70,14 +70,7 @@ final class Metadata extends NativeRuntime {
     public static function alias (string $class, string $alias, bool $autoload = true):true {
 
         return Inspection::isClass($class) && class_alias($class, $alias, $autoload)
-            ?: throw new ClassAliasException(
-                'Failed to create alias for class.',
-                [
-                    'class' => $class,
-                    'alias' => $alias,
-                    'autoload' => $autoload,
-                ]
-            );
+            ?: throw new ClassAliasException;
 
     }
 
@@ -108,10 +101,7 @@ final class Metadata extends NativeRuntime {
             DataIs::object($object_or_class) => get_object_vars($object_or_class),
             default => Inspection::isClass($object_or_class)
                 ? get_class_vars($object_or_class)
-                : throw new ClassDoesntExistException(
-                    "The class doesn't exist.",
-                    ['class' => $object_or_class]
-                )
+                : throw new ClassDoesntExistException
         };
 
     }
@@ -164,10 +154,7 @@ final class Metadata extends NativeRuntime {
 
         return Inspection::isClass(DataIs::object($object_or_class) ? $object_or_class::class : $object_or_class)
             ? get_class_methods($object_or_class)
-            : throw new ClassDoesntExistException(
-                "The class doesn't exist.",
-                ['class' => $object_or_class]
-            );
+            : throw new ClassDoesntExistException;
 
     }
 

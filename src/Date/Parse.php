@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.4
  * @package Runtime
  */
 
@@ -127,13 +127,7 @@ final class Parse extends NativeRuntime {
     public static function timestamp (string $datetime, ?int $timestamp = null):int {
 
         return ($str_to_time = strtotime($datetime, $timestamp)) !== false
-            ? $str_to_time : throw new CannotParseTimestampException(
-                'Cannot parse string to timestamp.',
-                [
-                    'datetime' => $datetime,
-                    'timestamp' => $timestamp,
-                ]
-            );
+            ? $str_to_time : throw new CannotParseTimestampException;
 
     }
 
