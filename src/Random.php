@@ -84,7 +84,7 @@ final class Random extends NativeRuntime {
                 ]
             );
 
-        return mt_rand($min, $max ?? $maximum);
+        return mt_rand($min, $max ?? ($maximum ?? 0));
 
     }
 
