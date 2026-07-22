@@ -39,8 +39,6 @@ final class Search extends NativeRuntime {
      * ### Find the position of the first occurrence for a substring in a string
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
-     *
      * @param string $search <p>
      * A string to find position.
      * </p>
@@ -71,8 +69,6 @@ final class Search extends NativeRuntime {
     /**
      * ### Find the position of the last occurrence for a substring in a string
      * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
      *
      * @param string $search <p>
      * A string to find position.

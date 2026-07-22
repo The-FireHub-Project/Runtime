@@ -48,8 +48,6 @@ final class Ordering extends NativeRuntime {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Meta\Enum\Order::ASC As default parameter.
-     * @uses \FireHub\Runtime\Type\Arr\SortType::BY_REGULAR As default parameter.
-     * @uses \FireHub\Runtime\Type\Arr\SortFlag: As default parameter.
      *
      * @template TArray of array<array-key, mixed>
      *
@@ -95,8 +93,6 @@ final class Ordering extends NativeRuntime {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Meta\Enum\Order::ASC As default parameter.
-     * @uses \FireHub\Runtime\Type\Arr\SortType::BY_REGULAR As default parameter.
-     * @uses \FireHub\Runtime\Type\Arr\SortFlag: As default parameter.
      *
      * @template TArray of array<array-key, mixed>
      *

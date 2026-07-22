@@ -171,8 +171,6 @@ final class Transform extends NativeRuntime {
      * If a string is an array, all its $string values will be converted recursively.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding As converted encoding.
-     *
      * @param string $string <p>
      * The string to be converted.
      * </p>

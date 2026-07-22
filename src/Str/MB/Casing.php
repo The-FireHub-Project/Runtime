@@ -35,9 +35,6 @@ final class Casing extends NativeRuntime {
      * Performs case folding on a string, converted in the way specified by $caseFolding.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
-     * @uses \FireHub\Runtime\Type\Str\CaseMode The case mode parameter for case folding.
-     *
      * @param string $string <p>
      * The string being converted.
      * </p>

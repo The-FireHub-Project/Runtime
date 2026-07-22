@@ -57,7 +57,6 @@ final class ResourceManager extends NativeRuntime {
      * ### Gets the resource type
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Type\Resource As return.
      * @uses \FireHub\Runtime\Type\Resource::UNKNOWN If the resource type is unknown.
      *
      * @param resource $resource <p>

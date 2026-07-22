@@ -42,8 +42,6 @@ final class Timezone extends NativeRuntime {
      * If none of the above succeeds, DateAndTimeZone#getDefaultTimezone() will return a default timezone of UTC.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Date\Zone To check for a valid timezone.
-     *
      * @throws \FireHub\Runtime\Exception\FailedToGetTimezoneException If we can't get the default timezone.
      *
      * @return \FireHub\Core\Type\Date\Zone Timezone enum.

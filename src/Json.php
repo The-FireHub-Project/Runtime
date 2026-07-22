@@ -53,8 +53,6 @@ final class Json extends NativeRuntime {
      * value of serialize_precision.
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Json\Flag As parameter.
-     * @uses \FireHub\Runtime\Json\Flag\Encode As parameter.
      * @uses \FireHub\Runtime\Arr\Transform::reduce() To reduce flags.
      * @uses \FireHub\Runtime\Arr\Transform::unique() To get unique flags.
      *
@@ -104,8 +102,6 @@ final class Json extends NativeRuntime {
      * Takes a JSON-encoded string and converts it into a PHP value.
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Json\Flag As parameter.
-     * @uses \FireHub\Runtime\Json\Flag\Decode As parameter.
      * @uses \FireHub\Runtime\Arr\Transform::reduce() To reduce flags.
      * @uses \FireHub\Runtime\Arr\Transform::unique() To get unique flags.
      *

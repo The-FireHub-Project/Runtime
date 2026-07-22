@@ -38,8 +38,6 @@ final class Inspection extends NativeRuntime {
      * ### Get string length
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
-     *
      * @param string $string <p>
      * The string being measured for length.
      * </p>
@@ -59,8 +57,6 @@ final class Inspection extends NativeRuntime {
     /**
      * ### Check if strings are valid for the specified encoding
      * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Type\Str\Encoding As checked encoding.
      *
      * @param string $string <p>
      * The string to check encoding on.
@@ -83,7 +79,7 @@ final class Inspection extends NativeRuntime {
      * Detects the most likely character encoding for string from an ordered list of candidates.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding As detected encoding.
+     * @uses \FireHub\Core\Type\Str\Encoding::cases() To get the Encoding enum cases.
      * @uses \FireHub\Runtime\Arr\Access::column() To get the encoding values from the Encoding enum.
      *
      * @param string $string <p>

@@ -179,8 +179,6 @@ final class Regex extends NativeRuntime {
      * ### Set/Get character encoding for multibyte regex
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding To get or set regex character encoding.
-     *
      * @param null|\FireHub\Core\Type\Str\Encoding $encoding [optional] <p>
      * Character encoding.
      * If it is null, the internal character encoding value will be used.

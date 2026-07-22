@@ -61,8 +61,6 @@ final class Delimiter extends NativeRuntime {
      * formed by the string separator.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Foundation\Constant\Numeric\IntegerLimits::MAX As the default maximum limit value.
-     *
      * @param string $string <p>
      * The input string.
      * </p>

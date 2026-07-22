@@ -250,7 +250,6 @@ final class Math extends NativeRuntime {
      * $precision can also be negative or zero (default).
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Math\RoundMode::HALF_AWAY_FROM_ZERO As default rounding mode.
      * @uses \FireHub\Runtime\Math\RoundMode::toNative() To get native PHP rounding mode.
      *
      * @param float|int $number <p>
@@ -284,7 +283,6 @@ final class Math extends NativeRuntime {
      * ### Natural logarithm
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Math\LogBase::E As default parameter.
      * @uses \FireHub\Runtime\Math\LogBase::value() To get log value.
      *
      * @param float|int $number <p>

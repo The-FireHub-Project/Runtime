@@ -46,8 +46,6 @@ final class Access extends NativeRuntime {
      * The second character's position is 1, and so on.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
-     *
      * @param string $string <p>
      * The string to extract the substring from.
      * </p>
@@ -79,8 +77,6 @@ final class Access extends NativeRuntime {
      * ### Get the number of times the searched substring occurs in the string
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
-     *
      * @param string $string <p>
      * The string being checked.
      * </p>
@@ -105,8 +101,6 @@ final class Access extends NativeRuntime {
      *
      * This function finds the last occurrence of a $find in the $string and returns the portion of $string.
      * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
      *
      * @param string $string <p>
      * The string being searched.
@@ -140,8 +134,6 @@ final class Access extends NativeRuntime {
      *
      * Returns part of $string starting from and including the first occurrence of $find to the end of $string.
      * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
      *
      * @param string $find <p>
      * String to find.
@@ -181,8 +173,6 @@ final class Access extends NativeRuntime {
      *
      * The $encoding parameter can be optionally specified, and it is good practice to do so.
      * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
      *
      * @param string $string <p>
      * The input string.

@@ -319,8 +319,6 @@ final class Transform extends NativeRuntime {
      * Takes an input array and returns a new array without duplicate values.
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Type\Arr\UniqueMode::REGULAR As default compare enum.
-     *
      * @template TKey of array-key
      * @template TValue
      *

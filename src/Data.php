@@ -70,8 +70,6 @@ final class Data extends NativeRuntime {
      * ### Gets data type
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Type\Data\Type As returned type.
-     *
      * @param mixed $value <p>
      * The variable being type-checked.
      * </p>

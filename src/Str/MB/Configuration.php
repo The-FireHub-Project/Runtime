@@ -35,8 +35,6 @@ final class Configuration extends NativeRuntime {
      * ### Set/Get internal character encoding
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Type\Str\Encoding The encoding parameter for character encoding.
-     *
      * @param null|\FireHub\Core\Type\Str\Encoding $encoding [optional] <p>
      * Encoding is the character encoding name used for the HTTP input character encoding conversion, HTTP output
      * character encoding conversion, and the default character encoding for string functions defined by the mbstring
