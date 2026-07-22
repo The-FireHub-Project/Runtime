@@ -70,7 +70,9 @@ final class RegexTest extends FireHubTestCase {
 
         $this->expectException(InvalidPatternException::class);
 
-        Str\SB\Regex::match($pattern, $string, $offset, $all, $result);
+        $this->suppressPhpErrors(
+            fn() => Str\SB\Regex::match($pattern, $string, $offset, $all, $result)
+        );
 
     }
 
@@ -109,7 +111,9 @@ final class RegexTest extends FireHubTestCase {
 
         $this->expectException(InvalidPatternException::class);
 
-        Str\SB\Regex::replace($pattern, $replacement, $string, $limit);
+        $this->suppressPhpErrors(
+            fn() => Str\SB\Regex::replace($pattern, $replacement, $string, $limit)
+        );
 
     }
 
@@ -159,9 +163,11 @@ final class RegexTest extends FireHubTestCase {
 
         $this->expectException(InvalidPatternException::class);
 
-        Str\SB\Regex::replaceUsing($pattern, static fn($matches) => $matches[1].($matches[2]+1),
-            $string,
-            $limit
+        $this->suppressPhpErrors(
+            fn() => Str\SB\Regex::replaceUsing($pattern, static fn($matches) => $matches[1].($matches[2]+1),
+                $string,
+                $limit
+            )
         );
 
     }
@@ -201,7 +207,9 @@ final class RegexTest extends FireHubTestCase {
 
         $this->expectException(InvalidPatternException::class);
 
-        Str\SB\Regex::split($pattern, $string, $limit, $remove_empty);
+        $this->suppressPhpErrors(
+            fn() => Str\SB\Regex::split($pattern, $string, $limit, $remove_empty)
+        );
 
     }
 

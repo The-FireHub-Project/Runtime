@@ -13,19 +13,19 @@
 
 namespace FireHub\Runtime\Exception;
 
-use FireHub\Core\Exception\Runtime\InvalidArgumentException;
+use FireHub\Core\Exception\Runtime\SystemException;
 
 /**
- * ### Represents a failure caused by failed timezone retrieval
+ * ### Represents a failure caused by a failed autoloader unregistration
  * @since 1.0.0
  */
-final class FailedToGetTimezoneException extends InvalidArgumentException {
+final class UnregisterAutoloadFailedException extends SystemException {
 
     /**
      * @inheritDoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'The provided timezone cannot be retrieved.';
+    protected const string DEFAULT_MESSAGE = 'The provided autoloader cannot be unregistered.';
 
 }

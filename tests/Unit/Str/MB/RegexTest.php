@@ -16,9 +16,7 @@ namespace FireHub\Tests\Runtime\Unit\Str\MB;
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\Str;
 use FireHub\Core\Type\Str\Encoding;
-use FireHub\Runtime\Exception\ {
-    InvalidEncodingException, InvalidPatternException
-};
+use FireHub\Runtime\Exception\InvalidPatternException;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Depends, Group, Small, TestWith
 };
@@ -91,7 +89,9 @@ final class RegexTest extends FireHubTestCase {
 
         $this->expectException(InvalidPatternException::class);
 
-        Str\MB\Regex::replace($pattern, $replacement, $string, $case_sensitive);
+        $this->suppressPhpErrors(
+            fn() => Str\MB\Regex::replace($pattern, $replacement, $string, $case_sensitive)
+        );
 
     }
 
@@ -143,10 +143,12 @@ final class RegexTest extends FireHubTestCase {
 
         $this->expectException(InvalidPatternException::class);
 
-        Str\MB\Regex::replaceUsing(
-            $pattern,
-            static fn($matches) => $matches[1].($matches[2]+1),
-            $string
+        $this->suppressPhpErrors(
+            fn() => Str\MB\Regex::replaceUsing(
+                $pattern,
+                static fn($matches) => $matches[1].($matches[2]+1),
+                $string
+            )
         );
 
     }
@@ -184,7 +186,9 @@ final class RegexTest extends FireHubTestCase {
 
         $this->expectException(InvalidPatternException::class);
 
-        Str\MB\Regex::split($pattern, $string, $limit);
+        $this->suppressPhpErrors(
+            fn() => Str\MB\Regex::split($pattern, $string, $limit)
+        );
 
     }
 
