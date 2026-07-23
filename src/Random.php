@@ -106,7 +106,7 @@ final class Random extends NativeRuntime {
      * @throws \FireHub\Runtime\Exception\SecureNumberException If a cryptographically secure source of randomness is
      * unavailable.
      *
-     * @return int A cryptographically secure, uniformly selected integer from the closed interval [min, max].<br>
+     * @return int A cryptographically secure, uniformly selected integer from the closed interval [min, max].
      * Both min and max are possible return values.
      *
      * @caution This method is significantly slower than non-cryptographic random number generators like Random::number.

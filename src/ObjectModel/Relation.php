@@ -104,7 +104,8 @@ final class Relation extends NativeRuntime {
      * @uses \FireHub\Runtime\DataIs::object() To check if the $object_or_class parameter is an object.
      *
      * @param class-string|object $object_or_class <p>
-     * The tested object or class name.<br>
+     * The tested object or class name.
+     *
      * This parameter is optional if called from the object's method.
      * </p>
      *

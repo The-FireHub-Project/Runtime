@@ -150,7 +150,7 @@ final class Search extends NativeRuntime {
      *
      * @return non-negative-int|false Numeric position of the last occurrence or false if none exist.
      *
-     * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.<br>
+     * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.
      * Read the section on Booleans for more information.
      * Use the === operator for testing the return value of this function.
      */
@@ -180,13 +180,13 @@ final class Search extends NativeRuntime {
      * @param int $offset [optional] <p>
      * The position in a subject to start searching.
      *
-     * If start is given and is non-negative, then Seach#segmentMatching() will begin examining the subject at
+     * If start is given and is non-negative, then Seach::segmentMatching() will begin examining the subject at
      * the start position.
      *
      * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
      * and so forth.
      *
-     * If start is given and is negative, then Seach#segmentMatching() will begin examining the subject at the start
+     * If start is given and is negative, then Seach::segmentMatching() will begin examining the subject at the start
      * position from the end of a subject.
      * </p>
      * @param int|null $length [optional] <p>
@@ -226,13 +226,13 @@ final class Search extends NativeRuntime {
      * @param int $offset [optional] <p>
      * The position in a subject to start searching.
      *
-     * If start is given and is non-negative, then Seach#segmentNotMatching() will begin examining the subject at
+     * If start is given and is non-negative, then Seach::segmentNotMatching() will begin examining the subject at
      * the start position.
      *
      * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
      * and so forth.
      *
-     * If start is given and is negative, then Search#segmentNotMatching() will begin examining the subject at the
+     * If start is given and is negative, then Search::segmentNotMatching() will begin examining the subject at the
      * start position from the end of a subject.
      * </p>
      * @param null|int $length [optional] <p>

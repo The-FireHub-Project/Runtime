@@ -49,12 +49,12 @@ final class Pointer extends NativeRuntime {
      * The array.
      * </p>
      *
-     * @return value-of<TArray>|false The Iterables#current() function simply returns the value of the array element
+     * @return value-of<TArray>|false The Iterables::current() function simply returns the value of the array element
      * that is being pointed to with the internal pointer.
      *
      * It doesn't move the pointer in any way.
      *
-     * If the internal pointer points beyond the end of the element list or the array is empty, Iterables#current()
+     * If the internal pointer points beyond the end of the element list or the array is empty, Iterables::current()
      * returns false.
      *
      * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.
@@ -62,13 +62,13 @@ final class Pointer extends NativeRuntime {
      * Read the section on Booleans for more information.
      *
      * Use the === operator for testing the return value of this function.
-     * @note The results of calling Iterables#current() on an empty array and on an array whose internal pointer points
+     * @note The results of calling Iterables::current() on an empty array and on an array whose internal pointer points
      * beyond the end of the elements is indistinguishable from a bool false element.
      *
      * To properly traverse an array which may contain false elements, see the foreach control structure.
      *
-     * To still use Iterables#current() and properly check if the value is really an element of the array, the
-     * Iterables#key() of the Iterables#current() element should be checked to be strictly different from null.
+     * To still use Iterables::current() and properly check if the value is really an element of the array, the
+     * Iterables::key() of the Iterables::current() element should be checked to be strictly different from null.
      */
     public static function current (array $array):mixed {
 
@@ -88,12 +88,12 @@ final class Pointer extends NativeRuntime {
      * The array.
      * </p>
      *
-     * @return null|key-of<TArray> The Iterables#key() function simply returns the key of the array element that's
+     * @return null|key-of<TArray> The Iterables::key() function simply returns the key of the array element that's
      * currently being pointed to by the internal pointer.
      *
      * It doesn't move the pointer in any way.
      *
-     * If the internal pointer points beyond the end of the element list or the array is empty, Iterables#key()
+     * If the internal pointer points beyond the end of the element list or the array is empty, Iterables::key()
      * returns null.
      */
     public static function key (array $array):null|int|string {
@@ -105,7 +105,7 @@ final class Pointer extends NativeRuntime {
     /**
      * ### Rewind the internal array pointer
      *
-     * Method Iterables#prev() behaves like Iterables#next(), except it rewinds the internal array pointer one place
+     * Method Iterables::prev() behaves like Iterables::next(), except it rewinds the internal array pointer one place
      * instead of advancing it.
      * @since 1.0.0
      *
@@ -135,7 +135,7 @@ final class Pointer extends NativeRuntime {
     /**
      * ### Advance the internal pointer of an array
      *
-     * Method Iterables#next() behaves like Iterables#current(), with one difference.
+     * Method Iterables::next() behaves like Iterables::current(), with one difference.
      *
      * It advances the internal array pointer one place forward before returning the element value.
      *
@@ -160,8 +160,8 @@ final class Pointer extends NativeRuntime {
      * @note The end of an array is indistinguishable from a bool false element.
      * To properly traverse an array which may contain false elements, see the foreach function.
      *
-     * To still use Iterables#next() and properly check if the end of the array has been reached, verify that the
-     * Iterables#key() is null.
+     * To still use Iterables::next() and properly check if the end of the array has been reached, verify that the
+     * Iterables::key() is null.
      */
     public static function next (array &$array):mixed {
 
@@ -172,7 +172,7 @@ final class Pointer extends NativeRuntime {
     /**
      * ### Set the internal pointer of an array to its first element
      *
-     * Method Iterables#reset() rewinds the array's internal pointer to the first element and returns the value of
+     * Method Iterables::reset() rewinds the array's internal pointer to the first element and returns the value of
      * the first array element.
      * @since 1.0.0
      *
@@ -205,7 +205,7 @@ final class Pointer extends NativeRuntime {
     /**
      * ### Set the internal pointer of an array to its last element
      *
-     * Method Iterables#end() advances the array's internal pointer to the last element and returns its value.
+     * Method Iterables::end() advances the array's internal pointer to the last element and returns its value.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>

@@ -35,7 +35,7 @@ final class Parse extends NativeRuntime {
     /**
      * ### Returns associative array with detailed info about the given date/time
      *
-     * Method parses the given datetime string according to the same rules as Parse#stringToTimestamp().
+     * Method parses the given datetime string according to the same rules as Parse::stringToTimestamp().
      * @since 1.0.0
      *
      * @param non-empty-string $datetime <p>

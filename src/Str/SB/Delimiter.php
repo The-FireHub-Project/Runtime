@@ -71,7 +71,8 @@ final class Delimiter extends NativeRuntime {
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
      * element containing the rest of the string.
      *
-     * If the limit parameter is negative, all components except the last – limit are returned.<br>
+     * If the limit parameter is negative, all components except the last – limit are returned.
+     *
      * If the limit parameter is zero, then this is treated as 1.
      * </p>
      *

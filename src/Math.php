@@ -548,8 +548,8 @@ final class Math extends NativeRuntime {
      *
      * Returns the arc cosine of num in radians.
      *
-     * Math#cosineArc() is the inverse function of Math#cosine() which means that $number == Math#cos(Math#acos
-     * ($number)) for every value of a that is within Math#acos() range.
+     * Math::acos() is the inverse function of Math::cos() which means that $number == Math#cos(Math#acos
+     * ($number)) for every value of a that is within Math::acos() range.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -625,8 +625,8 @@ final class Math extends NativeRuntime {
      *
      * Returns the arc sine of $number in radians.
      *
-     * Math#sineArc() is the inverse function of Math#sin(), which means that $num == Math#sin(Math#asin($number))
-     * for every value of a that is within Math#asin() range.
+     * Math#sineArc() is the inverse function of Math::sin(), which means that $num == Math#sin(Math#asin($number))
+     * for every value of a that is within Math::asin() range.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -702,8 +702,8 @@ final class Math extends NativeRuntime {
      *
      * Returns the arc tangent of num in radians.
      *
-     * Math#atan() is the inverse function of Math#tangent(), which means that $num == Math#tan(Math#atan($number))
-     * for every value of a that is within Math#atan() range.
+     * Math#atan() is the inverse function of Math::tan(), which means that $num == Math#tan(Math#atan($number))
+     * for every value of a that is within Math::atan() range.
      * @since 1.0.0
      *
      * @param float $number <p>

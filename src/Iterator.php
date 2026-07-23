@@ -57,7 +57,7 @@ final class Iterator extends NativeRuntime {
      * @return ($preserve_keys is true ? array<TKey, TValue> : list<TValue>) An array containing items of the iterator.
      *
      * @note If this parameter $preserve_keys is not set or set to true, duplicate keys will be overwritten.
-     * The last value with a given key will be in the returned array.<br>
+     * The last value with a given key will be in the returned array.
      * Set this parameter as false to get all the values in any case.
      */
     public static function toArray (iterable $iterator, bool $preserve_keys = true):array {

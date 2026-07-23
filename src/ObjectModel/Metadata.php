@@ -63,8 +63,8 @@ final class Metadata extends NativeRuntime {
      * @return true True on success.
      *
      * @note Class names are case-insensitive in PHP, and this is reflected in this function.
-     * Aliases created by ClsObj#alias() are declared in lowercase
-     * This means that for a class MyClass, the Metadata#alias('MyClass', 'My_Class_Alias') call will declare a new
+     * Aliases created by Metadata::alias() are declared in lowercase
+     * This means that for a class MyClass, the Metadata::alias('MyClass', 'My_Class_Alias') call will declare a new
      * class alias named my_class_alias.
      */
     public static function alias (string $class, string $alias, bool $autoload = true):true {

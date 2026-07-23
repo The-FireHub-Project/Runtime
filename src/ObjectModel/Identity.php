@@ -37,7 +37,7 @@ final class Identity extends NativeRuntime {
      *
      * Once the object is destroyed, its id may be reused for other objects.
      *
-     * This behavior is similar to Identity#hash().
+     * This behavior is similar to Identity::hash().
      * @since 1.0.0
      *
      * @param object $object <p>

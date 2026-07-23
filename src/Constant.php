@@ -86,7 +86,7 @@ final class Constant extends NativeRuntime {
     /**
      * ### Returns the value of a constant
      *
-     * Method Constant#value() is useful if you need to retrieve the value of a constant but don't know its name.
+     * Method Constant::value() is useful if you need to retrieve the value of a constant but don't know its name.
      * In other words, it is stored in a variable or returned by a function.
      * @since 1.0.0
      *

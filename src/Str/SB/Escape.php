@@ -46,7 +46,7 @@ final class Escape extends NativeRuntime {
      *
      * @return ($string is empty ? '' : non-falsy-string) The escaped string.
      *
-     * @caution The Escape#addSlashes() is sometimes incorrectly used to try to prevent SQL Injection. Instead,
+     * @caution The Escape:addSlashes() is sometimes incorrectly used to try to prevent SQL Injection. Instead,
      * database-specific escaping functions and/or prepared statements should be used.
      */
     public static function addSlashes (string $string):string {
@@ -90,9 +90,9 @@ final class Escape extends NativeRuntime {
      *
      * @return string String with backslashes stripped off.
      *
-     * @note StrSB#stripSlashes() is not recursive. If you want to apply this function to a multidimensional array,
+     * @note SB::stripSlashes() is not recursive. If you want to apply this function to a multidimensional array,
      * you need to use a recursive function.
-     * @tip StrSB#stripSlashes() can be used if you aren't inserting this data into a place (such as a database)
+     * @tip SB::stripSlashes() can be used if you aren't inserting this data into a place (such as a database)
      * that requires escaping. For example, if you're simply outputting data straight from an HTML form.
      */
     public static function stripSlashes (string $string):string {

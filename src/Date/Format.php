@@ -34,7 +34,7 @@ final class Format extends NativeRuntime {
      * Returns a string formatted according to the given format string using the given integer timestamp (Unix
      * timestamp) or the current time if no timestamp is given.
      *
-     * In other words, timestamp is optional and defaults to the value of Clock#time().
+     * In other words, timestamp is optional and defaults to the value of Clock::time().
      * @since 1.0.0
      *
      * @link https://www.php.net/manual/en/datetime.format.php To check valid $format formats.
@@ -64,7 +64,7 @@ final class Format extends NativeRuntime {
      * Returns a formatted number, according to the given format string using the given integer timestamp or the current
      * local time if no timestamp is given
      *
-     * In other words, timestamp is optional and defaults to the value of Clock#time().
+     * In other words, timestamp is optional and defaults to the value of Clock::time().
      * @since 1.0.0
      *
      * @see https://www.php.net/manual/en/function.idate.php

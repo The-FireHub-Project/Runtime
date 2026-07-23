@@ -201,7 +201,7 @@ final class Composition extends NativeRuntime {
      * When the value in the first array is scalar, it will be replaced by the value in the second array, may it be
      * scalar or array.
      *
-     * When the value in the first array and the second array are both arrays, Arr#replaceRecursive() will replace
+     * When the value in the first array and the second array are both arrays, Arr::replaceRecursive() will replace
      * their respective values recursively.
      * @since 1.0.0
      *

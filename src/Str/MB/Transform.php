@@ -99,10 +99,10 @@ final class Transform extends NativeRuntime {
     /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
-     * Performs a multibyte safe StrSB#trim() operation and returns a string with whitespace stripped from
+     * Performs a multibyte safe MB::trim() operation and returns a string with whitespace stripped from
      * the beginning and end of the string.
      *
-     * Without the second parameter, StrMB#trim() will strip these characters:
+     * Without the second parameter, MB::trim() will strip these characters:
      *
      * - " " (Unicode U+0020), an ordinary space.
      * - "\t" (Unicode U+0009), a tab.
@@ -144,7 +144,8 @@ final class Transform extends NativeRuntime {
      * Side to trim string.
      * </p>
      * @param null|string $characters [optional] <p>
-     * Optionally, the stripped characters can also be specified using the character parameter.<br>
+     * Optionally, the stripped characters can also be specified using the character parameter.
+     *
      * List all characters that need to be stripped.
      * </p>
      * @param null|\FireHub\Core\Type\Str\Encoding $encoding [optional] <p>

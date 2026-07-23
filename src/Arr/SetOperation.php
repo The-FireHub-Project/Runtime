@@ -62,8 +62,8 @@ final class SetOperation extends NativeRuntime {
      *
      * @return TArray An array containing all the entries from $array that aren't present in any of the other arrays.
      *
-     * @note This function only checks one dimension of an n-dimensional array.<br>
-     * You can check deeper dimensions by using Arr#difference($array1[0], $array2[0]).
+     * @note This function only checks one dimension of an n-dimensional array.
+     * You can check deeper dimensions by using Arr::difference($array1[0], $array2[0]).
      */
     public static function difference (array $array, array ...$excludes):array {
 
@@ -75,8 +75,8 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the difference of arrays using values for comparison by using a callback for comparison
      *
-     * Computes the difference of arrays by using a callback function for data comparison.<br>
-     * This is unlike Arr#difference() which uses an internal function for comparing the data.
+     * Computes the difference of arrays by using a callback function for data comparison.
+     * This is unlike Arr::difference() which uses an internal function for comparing the data.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -97,12 +97,12 @@ final class SetOperation extends NativeRuntime {
      * the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
-     * @note Note that this function only checks one dimension of an n-dimensional array.<br>
+     * @note Note that this function only checks one dimension of an n-dimensional array.
      * Of course, you can check deeper dimensions by using
-     * Arr#differenceFunc($array1[0], $array2[0], 'data_compare_func').
+     * Arr::differenceFunc($array1[0], $array2[0], 'data_compare_func').
      */
     public static function differenceUsing (array $array, array $excludes, callable $callback):array {
 
@@ -114,8 +114,8 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the difference of arrays using keys for comparison
      *
-     * Compares the keys from an array against the keys from arrays and returns the difference.<br>
-     * This function is like Arr#difference() except the comparison is done on the keys instead of the values.
+     * Compares the keys from an array against the keys from arrays and returns the difference.
+     * This function is like Arr::difference() except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -130,8 +130,8 @@ final class SetOperation extends NativeRuntime {
      * @return TArray Returns an array containing all the entries from an array whose keys are absent from all the
      * other arrays.
      *
-     * @note This function only checks one dimension of an n-dimensional array.<br>
-     * Of course, you can check deeper dimensions by using Arr#differenceKey($array1[0], $array2[0]).
+     * @note This function only checks one dimension of an n-dimensional array.
+     * Of course, you can check deeper dimensions by using Arr::differenceKey($array1[0], $array2[0]).
      */
     public static function differenceKey (array $array, array ...$excludes):array {
 
@@ -143,8 +143,8 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the difference of arrays using keys for comparison by using a callback for data comparison
      *
-     * Compares the keys from an array against the keys from arrays and returns the difference.<br>
-     * This function is like Arr#difference() except the comparison is done on the keys instead of the values.
+     * Compares the keys from an array against the keys from arrays and returns the difference.
+     * This function is like Arr::difference() except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -163,12 +163,12 @@ final class SetOperation extends NativeRuntime {
      * @return TArray An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
-     * @note This function only checks one dimension of an n-dimensional array.<br>
+     * @note This function only checks one dimension of an n-dimensional array.
      * Of course, you can check deeper dimensions by using
-     * Arr#differenceKeyFunc($array1[0], $array2[0], 'callback_func').
+     * Arr::differenceKeyFunc($array1[0], $array2[0], 'callback_func').
      */
     public static function differenceUsingKey (array $array, array $excludes, callable $callback):array {
 
@@ -180,8 +180,8 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the difference of arrays with additional index check
      *
-     * Compares an array against arrays and returns the difference.<br>
-     * Unlike Arr#difference(), the array keys are also used in the comparison.
+     * Compares an array against arrays and returns the difference.
+     * Unlike Arr::difference(), the array keys are also used in the comparison.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, scalar|\Stringable>
@@ -196,9 +196,9 @@ final class SetOperation extends NativeRuntime {
      * @return TArray An array containing all the entries from $array that aren't present in any of
      * the other arrays.
      *
-     * @note This function only checks one dimension of an n-dimensional array.<br>
-     * It is possible to check deeper dimensions by using, for example, Arr#differenceAssoc($array1[0], $array2[0]).
-     * @note Ensure arguments are passed in the correct order when comparing similar arrays with more keys.<br>
+     * @note This function only checks one dimension of an n-dimensional array.
+     * It is possible to check deeper dimensions by using, for example, Arr::differenceAssoc($array1[0], $array2[0]).
+     * @note Ensure arguments are passed in the correct order when comparing similar arrays with more keys.
      * The new array should be the first in the list.
      */
     public static function differenceAssoc (array $array, array ...$excludes):array {
@@ -230,12 +230,12 @@ final class SetOperation extends NativeRuntime {
      * @return TArray An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
-     * @note Note that this function only checks one dimension of an n-dimensional array.<br>
+     * @note Note that this function only checks one dimension of an n-dimensional array.
      * Of course, you can check deeper dimensions by using, for example,
-     * Arr#differenceAssocFuncValue($array1[0], $array2[0], some_comparison_func').
+     * Arr::differenceAssocFuncValue($array1[0], $array2[0], some_comparison_func').
      */
     public static function differenceAssocUsingValue (array $array, array $excludes, callable $callback):array {
 
@@ -247,9 +247,11 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the difference of arrays with additional index check by using a callback for key comparison
      *
-     * Compares an array against arrays and returns the difference.<br>
-     * Unlike Arr#difference(), the array keys are used in the comparison.<br>
-     * Unlike Arr#differenceAssoc(), a user-supplied callback function is used for the indices' comparison,
+     * Compares an array against arrays and returns the difference.
+     *
+     * Unlike Arr::difference(), the array keys are used in the comparison.
+     *
+     * Unlike Arr::differenceAssoc(), a user-supplied callback function is used for the indices' comparison,
      * not an internal function.
      * @since 1.0.0
      *
@@ -270,12 +272,12 @@ final class SetOperation extends NativeRuntime {
      * arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
-     * @note This function only checks one dimension of an n-dimensional array.<br>
+     * @note This function only checks one dimension of an n-dimensional array.
      * It is possible to check deeper dimensions by using, for example,
-     * Arr#differenceAssocFuncKey($array1[0], $array2[0], 'key_compare_func').
+     * Arr::differenceAssocFuncKey($array1[0], $array2[0], 'key_compare_func').
      */
     public static function differenceAssocUsingKey (array $array, array $excludes, callable $callback):array {
 
@@ -287,8 +289,8 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the difference of arrays with additional index check by using a callback for key-value comparison
      *
-     * Computes the difference of arrays with additional index check, compares data, and indexes by a callback function.<br>
-     * Note that the keys are used in the comparison unlike Arr#difference() and Arr#differenceFunc().
+     * Computes the difference of arrays with additional index check, compares data, and indexes by a callback function.
+     * Note that the keys are used in the comparison unlike Arr::difference() and Arr::differenceFunc().
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -311,12 +313,12 @@ final class SetOperation extends NativeRuntime {
      * the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
-     * @note This function only checks one dimension of an n-dimensional array.<br>
+     * @note This function only checks one dimension of an n-dimensional array.
      * It is possible to check deeper dimensions by using, for example,
-     *  Arr#differenceAssocFuncKeyValue($array1[0], $array2[0], 'data_compare_func', 'key_compare_func').
+     *  Arr::differenceAssocFuncKeyValue($array1[0], $array2[0], 'data_compare_func', 'key_compare_func').
      */
     public static function differenceAssocUsingKeyValue (array $array, array $excludes, callable $callback_value, callable $callback_key):array {
 
@@ -328,7 +330,7 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the intersection of arrays using values for comparison
      *
-     * Returns an array containing all the values of an array that are present in all the arguments.<br>
+     * Returns an array containing all the values of an array that are present in all the arguments.
      * Note that keys are preserved.
      * @since 1.0.0
      *
@@ -343,7 +345,7 @@ final class SetOperation extends NativeRuntime {
      *
      * @return TArray The filtered array.
      *
-     * @note Two elements are considered equal if and only if (string) $elem1 === (string) $elem2.<br>
+     * @note Two elements are considered equal if and only if (string) $elem1 === (string) $elem2.
      * In words: when the string representation is the same.
      */
     public static function intersect (array $array, array ...$arrays):array {
@@ -375,10 +377,10 @@ final class SetOperation extends NativeRuntime {
      * @return TArray Arrays containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
-     * @note Two elements are considered equal if and only if (string) $elem1 === (string) $elem2.<br>
+     * @note Two elements are considered equal if and only if (string) $elem1 === (string) $elem2.
      * In words: when the string representation is the same.
      */
     public static function intersectUsing (array $array, array $excludes, callable $callback):array {
@@ -434,7 +436,7 @@ final class SetOperation extends NativeRuntime {
      * @return TArray An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      */
@@ -448,8 +450,8 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the intersection of arrays with additional index check
      *
-     * Returns an array containing all the values of an array that are present in all the arguments.<br>
-     * Note that the keys are also used in the comparison, unlike in Arr#intersect().
+     * Returns an array containing all the values of an array that are present in all the arguments.
+     * Note that the keys are also used in the comparison, unlike in Arr::intersect().
      * @since 1.0.0
      *
      * @template TArray of array<array-key, scalar|\Stringable>
@@ -463,7 +465,7 @@ final class SetOperation extends NativeRuntime {
      *
      * @return TArray The filtered array.
      *
-     * @note The two values from the key → value pairs are considered equal only if (string) $elem1 === (string) $elem2.<br>
+     * @note The two values from the key → value pairs are considered equal only if (string) $elem1 === (string) $elem2.
      * In other words, a strict type check is executed, so the string representation must be the same.
      */
     public static function intersectAssoc (array $array, array ...$arrays):array {
@@ -476,8 +478,8 @@ final class SetOperation extends NativeRuntime {
     /**
      * ### Computes the intersection of arrays with additional index check by using a callback for value comparison
      *
-     * Computes the intersection of arrays with additional index check, compares data by a callback function.<br>
-     * Note that the keys are used in the comparison unlike in Arr#intersectFunc().
+     * Computes the intersection of arrays with additional index check, compares data by a callback function.
+     * Note that the keys are used in the comparison unlike in Arr::intersectFunc().
      * The data is compared by using a callback function.
      * @since 1.0.0
      *
@@ -497,7 +499,7 @@ final class SetOperation extends NativeRuntime {
      * @return TArray An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      */
@@ -531,10 +533,10 @@ final class SetOperation extends NativeRuntime {
      * @return TArray An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
-     * @note The comparison function must return an integer less than, equal to, or greater than zero if<br>
+     * @note The comparison function must return an integer less than, equal to, or greater than zero if
      * the first argument is considered to be respectively less than, equal to, or greater than the second.
      */
     public static function intersectAssocUsingKey (array $array, array $excludes, callable $callback):array {
@@ -571,7 +573,7 @@ final class SetOperation extends NativeRuntime {
      * arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
-     * cast to int of the callback's return value.<br>
+     * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      * @note The comparison function must return an integer less than, equal to, or greater than zero if

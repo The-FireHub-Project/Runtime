@@ -40,7 +40,7 @@ final class Access extends NativeRuntime {
     /**
      * ### Get part of string
      *
-     * Performs a multibyte safe StrSB#part() operation based on the number of characters.
+     * Performs a multibyte safe Access::part() operation based on the number of characters.
      * Position is counted from the beginning of $string.
      * The first character's position is 0.
      * The second character's position is 1, and so on.
@@ -50,7 +50,8 @@ final class Access extends NativeRuntime {
      * The string to extract the substring from.
      * </p>
      * @param int $start <p>
-     * If start is non-negative, the returned string will start at the start position in string, counting from zero.<br>
+     * If start is non-negative, the returned string will start at the start position in string, counting from zero.
+     *
      * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
      * and so forth.
      *
@@ -165,7 +166,7 @@ final class Access extends NativeRuntime {
     /**
      * ### Given a multibyte string, return an array of its characters
      *
-     * This function will return an array of strings, it is a version of StrSB#split() with support for encodings of
+     * This function will return an array of strings, it is a version of MB::split() with support for encodings of
      * variable character size as well as fixed-size encodings of 1,2 or 4 byte characters.
      *
      * If the $length parameter is specified, the string is broken down into chunks of the specified length in

@@ -95,7 +95,7 @@ final class Replace extends NativeRuntime {
      *
      * If it is negative, it represents the number of characters from the end of the string at which to stop replacing.
      *
-     * If it is not given, then it will default to StrSB#length(string); in other words, end the replacing at the
+     * If it is not given, then it will default to SB::length(string); in other words, end the replacing at the
      * end of the string.
      *
      * Of course, if the length is zero, then this function will have the effect of inserting $replace into string

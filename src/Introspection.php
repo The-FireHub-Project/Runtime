@@ -78,7 +78,7 @@ final class Introspection extends NativeRuntime {
      *
      * Returns the names and values of all the constants currently defined.
      *
-     * This includes those created by extensions as well as those created with the Constant#define() function.
+     * This includes those created by extensions as well as those created with the Constant::define() function.
      * @since 1.0.0
      *
      * @param bool $categorize [optional] <p>

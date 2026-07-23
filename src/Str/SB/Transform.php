@@ -257,7 +257,7 @@ final class Transform extends NativeRuntime {
      *
      * This function returns a string with whitespace stripped from the beginning and end of the string.
      *
-     * Without the second parameter, StrSB#trim() will strip these characters.
+     * Without the second parameter, SB::trim() will strip these characters.
      *
      * - " " (ASCII 32 (0x20)), an ordinary space.
      * - "\t" (ASCII 9 (0x09)), a tab.
@@ -285,11 +285,11 @@ final class Transform extends NativeRuntime {
      *
      * @return string The trimmed string.
      *
-     * @note Because StrSB#trim trims characters from the beginning and end of a string, it may be confusing when
+     * @note Because SB::trim trims characters from the beginning and end of a string, it may be confusing when
      * characters are (or aren't) removed from the middle.
-     * StrSB#trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a' thus moving 'b' to the beginning to
+     * SB::trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a' thus moving 'b' to the beginning to
      * also be trimmed.
-     * So, this is why it "works" whereas StrSB#trim('abc', 'b') seemingly doesn't.
+     * So, this is why it "works" whereas SB::trim('abc', 'b') seemingly doesn't.
      */
     public static function trim (string $string, Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):string {
 

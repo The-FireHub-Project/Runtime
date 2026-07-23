@@ -125,7 +125,7 @@ final class Transform extends NativeRuntime {
      *
      * @return array<TKey, TValue> Filtered array.
      *
-     * @note The result array can be re-indexed using the Arr#values() function.
+     * @note The result array can be re-indexed using the Arr::values() function.
      * @note If no callback is provided, all falsey values are removed.
      * @caution If the array is changed from the callback function (for example, an element added, deleted, or unset),
      * then the behavior of this function is undefined.
@@ -177,7 +177,7 @@ final class Transform extends NativeRuntime {
      * used as arguments for the callback.
      *
      * The number of parameters that the $callback function accepts should match the number of arrays passed to
-     * Arr#map(). Excess input arrays are ignored.
+     * Arr::map(). Excess input arrays are ignored.
      *
      * An ArgumentCountError is thrown if an insufficient number of arguments is provided.
      * @since 1.0.0
@@ -194,7 +194,7 @@ final class Transform extends NativeRuntime {
      *
      * Null can be passed as a value to $callback to perform a zip operation on multiple arrays.
      *
-     * If only an array is provided, Arr#map() will return the input array.
+     * If only an array is provided, Arr::map() will return the input array.
      * </p>
      *
      * @return ($array is list

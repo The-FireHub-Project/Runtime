@@ -39,7 +39,7 @@ final class Timezone extends NativeRuntime {
      * - Reading the timezone set using the setDefaultTimezone() method (if any).
      * - Reading the value of the 'date.timezone' ini option (if set).
      *
-     * If none of the above succeeds, DateAndTimeZone#getDefaultTimezone() will return a default timezone of UTC.
+     * If none of the above succeeds, DateAndTimeZone::getDefaultTimezone() will return a default timezone of UTC.
      * @since 1.0.0
      *
      * @throws \FireHub\Runtime\Exception\FailedToGetTimezoneException If we can't get the default timezone.

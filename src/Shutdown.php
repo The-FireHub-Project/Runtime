@@ -39,7 +39,7 @@ final class Shutdown extends NativeRuntime {
      * If you call exit() within one registered shutdown function, processing will stop completely, and no other
      * registered shutdown functions will be called.
      *
-     * Shutdown functions may also call Tick#register() themselves to add a shutdown function to the end of
+     * Shutdown functions may also call Shutdown::register() themselves to add a shutdown function to the end of
      * the queue.
      * @since 1.0.0
      *
@@ -57,7 +57,7 @@ final class Shutdown extends NativeRuntime {
      *
      * @note The working directory of the script can change inside the shutdown function under some web servers,
      * for example, Apache.
-     * @note Shutdown functions will not be executed if the process is killed with a SIGTERM or SIGKILL signal.<br>
+     * @note Shutdown functions will not be executed if the process is killed with a SIGTERM or SIGKILL signal.
      * While you can't intercept a SIGKILL, you can use pcntl_signal() to install a handler for a SIGTERM which uses
      * exit() to end cleanly.
      * @note Shutdown functions run separately from the time tracked by max_execution_time.

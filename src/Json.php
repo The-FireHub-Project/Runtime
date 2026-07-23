@@ -125,8 +125,8 @@ final class Json extends NativeRuntime {
      *
      * @note All string data for $json parameter must be UTF-8 encoded.
      * @note Method always uses Flag::THROW_ON_ERROR internally.
-     * @tip This method already performs validation during decoding, so calling Json#validate immediately before
-     * Json#decode will unnecessarily parse the string twice.
+     * @tip This method already performs validation during decoding, so calling Json::validate() immediately before
+     * Json::decode() will unnecessarily parse the string twice.
      */
     public static function decode (string $json, bool $as_array = false, int $depth = 512, Flag|Decode ...$flags):mixed {
 
@@ -172,8 +172,8 @@ final class Json extends NativeRuntime {
      * @return bool True if the given string is syntactically valid JSON, false otherwise.
      *
      * @caution Calling Json#validate immediately before Json#decode will unnecessarily parse the string twice, as
-     * Json#decode implicitly performs validation during decoding.
-     * Json#validate should therefore only be used if the decoded JSON payload is not immediately used and knowing
+     * Json::decode implicitly performs validation during decoding.
+     * Json::validate should therefore only be used if the decoded JSON payload is not immediately used and knowing
      * whether the string contains valid JSON is needed.
      */
     public static function validate (string $json, int $depth = 512, Validate ...$flags):bool {

@@ -153,7 +153,7 @@ final class Inspection extends NativeRuntime {
      *
      * @return bool True if the property exists, false if it doesn't exist.
      *
-     * @note As opposed with isset(), Inspection#propertyExist() returns true even if the property has the value null.
+     * @note As opposed with isset(), Inspection::propertyExist() returns true even if the property has the value null.
      * @note This method can't detect properties that are magically accessible using the __get magic method.
      * @note Using this function will use any registered autoloaders if the class is not already known.
      */
