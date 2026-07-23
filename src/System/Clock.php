@@ -11,18 +11,22 @@
  * @package Runtime
  */
 
-namespace FireHub\Runtime\Date;
+namespace FireHub\Runtime\System;
 
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
 
+use function hrtime;
 use function microtime;
 use function time;
 
 /**
- * ### Clock and Current Time Utilities
+ * ### PHP Runtime Clock Utilities
  *
- * Provides low-level wrappers for retrieving and formatting the current system time using native PHP date and time
- * functions while preserving native runtime behavior.
+ * Provides low-level wrappers for retrieving high-resolution and system clock values, including Unix timestamps,
+ * microsecond precision time measurements, and monotonic timers while preserving native PHP behavior.
+ *
+ * This component exposes PHP clock and time measurement capabilities through a consistent FireHub Runtime API
+ * without altering native runtime semantics.
  * @since 1.0.0
  */
 final class Clock extends NativeRuntime {
@@ -58,6 +62,22 @@ final class Clock extends NativeRuntime {
     public static function microtime ():float {
 
         return microtime(true);
+
+    }
+
+    /**
+     * ### Get the system's high-resolution time
+     *
+     * Returns the system's high-resolution time, counted from an arbitrary point in time. The delivered timestamp is
+     * monotonic and cannot be adjusted.
+     * @since 1.0.0
+     *
+     * @return array{0: int<0, max>, 1: int<0, 999999999>} Returns an array of integers in the form [seconds,
+     * nanoseconds].
+     */
+    public static function highResolution ():array {
+
+        return hrtime();
 
     }
 

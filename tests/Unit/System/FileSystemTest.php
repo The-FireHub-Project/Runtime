@@ -11,42 +11,31 @@
  * @package Runtime\Tests
  */
 
-namespace FireHub\Tests\Runtime\Unit\Date;
+namespace FireHub\Tests\Runtime\Unit\System;
 
 use FireHub\Testing\FireHubTestCase;
-use FireHub\Runtime\Date;
+use FireHub\Runtime\System;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Group, Small
 };
 
 /**
- * ### Test Clock and Current Time Utilities
+ * ### Test PHP Runtime File System Utilities
  * @since 1.0.0
  */
 #[Small]
 #[Group('src')]
-#[CoversClass(Date\Clock::class)]
-final class ClockTest extends FireHubTestCase {
+#[CoversClass(System\FileSystem::class)]
+final class FileSystemTest extends FireHubTestCase {
 
     /**
      * @since 1.0.0
      *
      * @return void
      */
-    public function testTime ():void {
+    public function testIncludedFiles ():void {
 
-        self::assertIsInt(Date\Clock::time());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testMicrotime ():void {
-
-        self::assertIsFloat(Date\Clock::microtime());
+        self::assertIsList(System\FileSystem::includedFiles());
 
     }
 
