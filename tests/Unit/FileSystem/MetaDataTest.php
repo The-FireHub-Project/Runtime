@@ -19,7 +19,7 @@ use FireHub\Runtime\Exception\ {
     PathGroupException, PathInodeException, PathSizeException, PathTimestampException
 };
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, DependsExternal, Group, Small, TestWith
+    CoversClass, DependsExternal, Group, RequiresOperatingSystemFamily, Small, TestWith
 };
 
 /**
@@ -229,6 +229,66 @@ final class MetaDataTest extends FileSystemTestCase {
 
         $this->suppressPhpErrors(
             fn() => FileSystem\Metadata::getGroup($this->temp_folder.$path)
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathGroupException
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Linux')]
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testSetGroupLinux (string $path):void {
+
+        self::assertTrue(
+            FileSystem\Metadata::setGroup(
+                $this->temp_folder.$path,
+                FileSystem\Metadata::getGroup($this->temp_folder.$path)
+            )
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathGroupException
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Darwin')]
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testSetGroupDarwin (string $path):void {
+
+        self::assertTrue(
+            FileSystem\Metadata::setGroup(
+                $this->temp_folder.$path,
+                FileSystem\Metadata::getGroup($this->temp_folder.$path)
+            )
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @param string $path
+     *
+     * @return void
+     */
+    #[TestWith(['/test_unknown.txt'])]
+    public function testSetGroupException (string $path):void {
+
+        $this->expectException(PathGroupException::class);
+
+        $this->suppressPhpErrors(
+            fn() => FileSystem\Metadata::setGroup($this->temp_folder.$path, 0)
         );
 
     }

@@ -282,8 +282,7 @@ final class FileTest extends FileSystemTestCase {
         ["hallo"],
         '/test.txt'
     ])]
-    public function testGetContentAsArray (array $expected, string $path, bool $skip_empty_lines = false, bool
-    $ignore_new_lines = false):void {
+    public function testGetContentAsArray (array $expected, string $path, bool $skip_empty_lines = false, bool $ignore_new_lines = false):void {
 
         self::assertSame(
             $expected,
