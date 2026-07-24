@@ -35,13 +35,13 @@ use PHPUnit\Framework\Attributes\ {
 final class MetaDataTest extends FileSystemTestCase {
 
     /**
-     * @param string $path
-     *
-     * @return void
-     *@throws \FireHub\Runtime\Exception\PathSizeException
-     *
      * @since 1.0.0
      *
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathSizeException
+     *
+     * @return void
      */
     #[DependsExternal(FileTest::class, 'testPutContent')]
     #[TestWith(['/test.txt'])]
