@@ -15,8 +15,11 @@ namespace FireHub\Tests\Runtime\Unit\FileSystem;
 
 use FireHub\Testing\FileSystemTestCase;
 use FireHub\Runtime\FileSystem;
+use FireHub\Core\Type\FileSystem\PermissionMode;
+use FireHub\Core\Meta\Enum\FileSystem\Permission;
 use FireHub\Runtime\Exception\ {
-    PathGroupException, PathInodeException, PathOwnerException, PathSizeException, PathTimestampException
+    PathGroupException, PathInodeException, PathOwnerException, PathPermissionsException, PathSizeException,
+    PathStatisticsException, PathTimestampException
 };
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DependsExternal, Group, RequiresOperatingSystemFamily, Small, TestWith
@@ -384,6 +387,136 @@ final class MetaDataTest extends FileSystemTestCase {
 
         $this->suppressPhpErrors(
             fn() => FileSystem\Metadata::setOwner($this->temp_folder.$path, 0)
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathPermissionsException
+     * @throws \FireHub\Runtime\Exception\InvalidNumberBaseException
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Linux')]
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testPermissionsLinux (string $path):void {
+
+        $expected = new PermissionMode(
+            Permission::READ_WRITE,
+            Permission::READ,
+            Permission::NONE
+        );
+
+        FileSystem\Metadata::setPermissions($this->temp_folder.$path, $expected);
+
+        self::assertSame(
+            $expected->value(),
+            FileSystem\Metadata::getPermissions($this->temp_folder.$path)->value()
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathPermissionsException
+     * @throws \FireHub\Runtime\Exception\InvalidNumberBaseException
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Darwin')]
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testPermissionsDarwin (string $path):void {
+
+        $expected = new PermissionMode(
+            Permission::READ_WRITE,
+            Permission::READ,
+            Permission::NONE
+        );
+
+        FileSystem\Metadata::setPermissions($this->temp_folder.$path, $expected);
+
+        self::assertSame(
+            $expected->value(),
+            FileSystem\Metadata::getPermissions($this->temp_folder.$path)->value()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\InvalidNumberBaseException
+     *
+     * @return void
+     */
+    #[TestWith(['/test_unknown.txt'])]
+    public function testGetPermissionsException (string $path):void {
+
+        $this->expectException(PathPermissionsException::class);
+
+        $this->suppressPhpErrors(
+            fn() => FileSystem\Metadata::getPermissions($this->temp_folder.$path)
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathStatisticsException
+     *
+     * @return void
+     */
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testStatistics (string $path):void {
+
+        $statistics = FileSystem\Metadata::statistics($this->temp_folder.$path);
+
+        self::assertIsArray($statistics);
+
+        self::assertArrayHasKey('dev', $statistics);
+        self::assertArrayHasKey('ino', $statistics);
+        self::assertArrayHasKey('mode', $statistics);
+        self::assertArrayHasKey('nlink', $statistics);
+        self::assertArrayHasKey('uid', $statistics);
+        self::assertArrayHasKey('gid', $statistics);
+        self::assertArrayHasKey('rdev', $statistics);
+        self::assertArrayHasKey('size', $statistics);
+        self::assertArrayHasKey('atime', $statistics);
+        self::assertArrayHasKey('mtime', $statistics);
+        self::assertArrayHasKey('ctime', $statistics);
+        self::assertArrayHasKey('blksize', $statistics);
+        self::assertArrayHasKey('blocks', $statistics);
+
+        self::assertSame(
+            5,
+            $statistics['size']
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @param string $path
+     *
+     * @return void
+     */
+    #[TestWith(['/test_unknown.txt'])]
+    public function testStatisticsException (string $path):void {
+
+        $this->expectException(PathStatisticsException::class);
+
+        $this->suppressPhpErrors(
+            fn() => FileSystem\Metadata::statistics($this->temp_folder.$path)
         );
 
     }

@@ -14,8 +14,16 @@
 namespace FireHub\Runtime\FileSystem;
 
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
+use FireHub\Runtime\ {
+    Arr, DataIs, Number, Str
+};
+use FireHub\Core\Type\FileSystem\PermissionMode;
+use FireHub\Core\Meta\Enum\ {
+    FileSystem\Permission, Number\Base
+};
 use FireHub\Runtime\Exception\ {
-    PathGroupException, PathInodeException, PathOwnerException, PathSizeException, PathTimestampException
+    PathGroupException, PathInodeException, PathOwnerException, PathPermissionsException, PathSizeException,
+    PathStatisticsException, PathTimestampException
 };
 
 use function chgrp;
@@ -327,6 +335,159 @@ final class Metadata extends NativeRuntime {
 
         return chown($path, $user)
             ?: throw new PathOwnerException;
+
+    }
+
+    /**
+     * ### Gets path permissions
+     *
+     * Gets permissions for the given path.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Runtime\Str\SB\Access::part() To get part of the decoct() function.
+     * @uses \FireHub\Runtime\Number::baseConverter() To convert a number to a base.
+     * @uses \FireHub\Core\Meta\Enum\Number\Base::DECIMAL To convert a number to a base.
+     * @uses \FireHub\Core\Meta\Enum\Number\Base::OCTAL To convert a number to a base.
+     *
+     * @param non-empty-string $path <p>
+     * The path.
+     * </p>
+     *
+     * @throws \FireHub\Runtime\Exception\PathPermissionsException If failed to permissions for a path.
+     * @throws \FireHub\Runtime\Exception\InvalidNumberBaseException If failed to convert a number to a base.
+     *
+     * @return \FireHub\Core\Type\FileSystem\PermissionMode Path permissions.
+     *
+     * @note The results of this function are cached.
+     * See Metadata::clearCache() for more details.
+     */
+    public static function getPermissions (string $path):PermissionMode {
+
+        $permissions = fileperms($path);
+
+        if ($permissions === false) throw new PathPermissionsException;
+
+        $permissions = Str\SB\Access::part(
+            Number::baseConverter((string)$permissions, Base::DECIMAL, Base::OCTAL),
+            -3
+        );
+
+        return new PermissionMode(
+            Permission::from((int)$permissions[0]),
+            Permission::from((int)$permissions[1]),
+            Permission::from((int)$permissions[2])
+        );
+
+    }
+
+    /**
+     * ### Sets path permissions
+     *
+     * Attempts to change the mode of the specified path to that given in permissions.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Runtime\Str\SB\Transform::format() To format a string.
+     * @uses \FireHub\Runtime\Number::baseConverter() To convert a number to a base.
+     * @uses \FireHub\Core\Meta\Enum\Number\Base::DECIMAL To convert a number to a base.
+     * @uses \FireHub\Core\Meta\Enum\Number\Base::OCTAL To convert a number to a base.
+     *
+     * @param non-empty-string $path <p>
+     * The path.
+     * </p>
+     * @param \FireHub\Core\Type\FileSystem\PermissionMode $mode <p>
+     * The permissions.
+     * </p>
+     *
+     * @throws \FireHub\Runtime\Exception\PathPermissionsException If failed to set permissions for a path.
+     * @throws \FireHub\Runtime\Exception\InvalidNumberBaseException If failed to convert a number to a base.
+     *
+     * @return True Only true.
+     *
+     * @note The current user is the user under which PHP runs.
+     * It is probably different from the user you use for normal shell or FTP access.
+     * The mode can be changed only by the user who owns the file on most systems.
+     * @note This function will not work on remote files as the file to be examined must be accessible via the
+     * server's filesystem.
+     */
+    public static function setPermissions (string $path, PermissionMode $mode):true {
+
+        return chmod(
+            $path,
+            (int)Number::baseConverter(
+                Str\SB\Transform::format(
+                    '0%d%d%d',
+                    $mode->owner->value,
+                    $mode->group->value,
+                    $mode->other->value
+                ),
+                BASE::OCTAL,
+                BASE::DECIMAL
+            )
+        ) ?: throw new PathPermissionsException;
+
+    }
+
+    /**
+     * ### Gives information about a file or folder
+     *
+     * Gathers the statistics of the file named by filename.
+     *
+     * If the filename is a symbolic link, statistics are from the file itself, not the symlink – use $symlink
+     * argument to change that behavior.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Runtime\Arr\Transform::filter() To filter string keys in statistics.
+     * @uses \FireHub\Runtime\DataIs::string() To find whether the statistics key is string or not.
+     *
+     * @param non-empty-string $path <p>
+     * Path to the file or folder.
+     * </p>
+     * @param bool $symlink [optional] <p>
+     * If true, the method gives information about a file or symbolic link.
+     * </p>
+     *
+     * @throws \FireHub\Runtime\Exception\PathStatisticsException If we couldn't get statistics for a path.
+     *
+     * @return array{
+     *   dev: int,
+     *   ino: int,
+     *   mode: int,
+     *   nlink: int,
+     *   uid: int,
+     *   gid: int,
+     *   rdev: int,
+     *   size: int,
+     *   atime: int,
+     *   mtime: int,
+     *   ctime: int,
+     *   blksize: int,
+     *   blocks: int
+     * } Statistics about a file or folder.
+     */
+    public static function statistics (string $path, bool $symlink = false):array {
+
+        /** @var array{
+         *   dev: int,
+         *   ino: int,
+         *   mode: int,
+         *   nlink: int,
+         *   uid: int,
+         *   gid: int,
+         *   rdev: int,
+         *   size: int,
+         *   atime: int,
+         *   mtime: int,
+         *   ctime: int,
+         *   blksize: int,
+         *   blocks: int
+         * }
+         */
+        return Arr\Transform::filter(
+            ($statistics = $symlink ? lstat($path) : stat($path)) !== false
+                ? $statistics
+                : throw new PathStatisticsException,
+            static fn(int $value, int|string $key) => DataIs::string($key)
+        );
 
     }
 
