@@ -16,7 +16,7 @@ namespace FireHub\Tests\Runtime\Unit\FileSystem;
 use FireHub\Testing\FileSystemTestCase;
 use FireHub\Runtime\FileSystem;
 use FireHub\Runtime\Exception\ {
-    CopyFileException, DeleteFileException, EmptyPathException, FileReadException, RenameFileException,
+    CopyFileException, DeleteFileException, EmptyPathException, ReadFileException, RenameFileException,
     UploadedFileMoveException
 };
 use PHPUnit\Framework\Attributes\ {
@@ -114,7 +114,9 @@ final class FileTest extends FileSystemTestCase {
 
         $this->expectException(CopyFileException::class);
 
-        self::assertTrue(FileSystem\File::copy($this->temp_folder.$path, $this->temp_folder.$to));
+        $this->suppressPhpErrors(
+            fn() => FileSystem\File::copy($this->temp_folder.$path, $this->temp_folder.$to)
+        );
 
     }
 
@@ -149,7 +151,9 @@ final class FileTest extends FileSystemTestCase {
 
         $this->expectException(RenameFileException::class);
 
-        self::assertTrue(FileSystem\File::rename($this->temp_folder.$path, $this->temp_folder.$to));
+        $this->suppressPhpErrors(
+            fn() => self::assertTrue(FileSystem\File::rename($this->temp_folder.$path, $this->temp_folder.$to))
+        );
 
     }
 
@@ -182,7 +186,9 @@ final class FileTest extends FileSystemTestCase {
 
         $this->expectException(DeleteFileException::class);
 
-        self::assertTrue(FileSystem\File::delete($this->temp_folder.$path));
+        $this->suppressPhpErrors(
+            fn() => self::assertTrue(FileSystem\File::delete($this->temp_folder.$path))
+        );
 
     }
 
@@ -245,7 +251,7 @@ final class FileTest extends FileSystemTestCase {
      * @param int $offset
      * @param null|int $length
      *
-     * @throws \FireHub\Runtime\Exception\FileReadException
+     * @throws \FireHub\Runtime\Exception\ReadFileException
      *
      * @return void
      */
@@ -267,7 +273,7 @@ final class FileTest extends FileSystemTestCase {
      * @param bool $skip_empty_lines
      * @param bool $ignore_new_lines
      *
-     * @throws \FireHub\Runtime\Exception\FileReadException
+     * @throws \FireHub\Runtime\Exception\ReadFileException
      *
      * @return void
      */
@@ -293,7 +299,7 @@ final class FileTest extends FileSystemTestCase {
      */
     public function testGetContentException ():void {
 
-        $this->expectException(FileReadException::class);
+        $this->expectException(ReadFileException::class);
 
         $this->suppressPhpErrors(
             fn() => FileSystem\File::getContent($this->temp_folder.'x')
@@ -316,26 +322,6 @@ final class FileTest extends FileSystemTestCase {
     public function testPutContent (string $path, array|string $data):void {
 
         self::assertGreaterThan(0, FileSystem\File::putContent($this->temp_folder.$path, $data));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @param bool $expected
-     * @param string $path
-     * @param null|int $last_accessed
-     * @param null|int $last_modified
-     *
-     * @throws \FireHub\Runtime\Exception\FileTimestampException
-     *
-     * @return void
-     */
-    #[Depends('testPutContent')]
-    #[TestWith([true, '/test.txt', 3600, 3600])]
-    public function testSetTimestamps (bool $expected,  string $path, ?int $last_accessed = null, ?int $last_modified = null):void {
-
-        self::assertSame($expected, FileSystem\File::setTimestamps($this->temp_folder.$path, $last_accessed, $last_modified));
 
     }
 

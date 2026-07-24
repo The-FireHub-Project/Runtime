@@ -15,7 +15,7 @@ namespace FireHub\Runtime\FileSystem;
 
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
 use FireHub\Runtime\Exception\ {
-    PathInodeException, PathSizeException, PathTimestampException
+    PathGroupException, PathInodeException, PathSizeException, PathTimestampException
 };
 
 use function chgrp;
@@ -217,6 +217,64 @@ final class Metadata extends NativeRuntime {
 
         return touch($path, $last_modified, $last_accessed)
             ?: throw new PathTimestampException;
+
+    }
+
+    /**
+     * ### Gets a file or folder group
+     *
+     * Gets the file or folder group. The group ID is returned in numerical format.
+     * @since 1.0.0
+     *
+     * @param non-empty-string $path <p>
+     * Path of the file or folder.
+     * </p>
+     *
+     * @throws \FireHub\Runtime\Exception\PathGroupException If we couldn't get a group for a file.
+     *
+     * @return non-negative-int The group ID of the file.
+     *
+     * @warning This method doesn't work on Windows.
+     * @note The results of this function are cached.
+     * See Metadata::clearCache() for more details.
+     * @tip Use posix_getgrgid() to resolve it to a group name.
+     */
+    public static function getGroup (string $path):int {
+
+        return ($group = filegroup($path)) === false
+            ? throw new PathGroupException
+            : $group;
+
+    }
+
+    /**
+     * ### Changes file or folder group
+     *
+     * Attempts to change the group of the files or folder $path to $group.
+     *
+     * Only the superuser may change the group of files arbitrarily; other users may change the group of files to any
+     * group of which that user is a member.
+     * @since 1.0.0
+     *
+     * @param non-empty-string $path <p>
+     * Path of the file or folder.
+     * </p>
+     * @param non-empty-string|int $group <p>
+     * A group name or number.
+     * </p>
+     *
+     * @throws \FireHub\Runtime\Exception\PathGroupException If we couldn't set a group for file
+     * or folder.
+     *
+     * @return true True on success.
+     *
+     * @warning This method doesn't work on Windows.
+     * @tip Use posix_getgrgid() to resolve it to a group name.
+     */
+    public static function setGroup (string $path, string|int $group):true {
+
+        return chgrp($path, $group)
+            ?: throw new PathGroupException;
 
     }
 
