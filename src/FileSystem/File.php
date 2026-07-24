@@ -15,8 +15,8 @@ namespace FireHub\Runtime\FileSystem;
 
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
 use FireHub\Runtime\Exception\ {
-    CopyFileException, DeleteFileException, EmptyPathException, FileNotFoundException, FileReadException,
-    FileTimestampException, FileWriteException, ReadFileException, RenameFileException, UploadedFileMoveException
+    CopyFileException, DeleteFileException, EmptyPathException, FileNotFoundException, FileWriteException,
+    ReadFileException, RenameFileException, UploadedFileMoveException
 };
 
 use const FILE_APPEND;
@@ -34,7 +34,6 @@ use function is_uploaded_file;
 use function move_uploaded_file;
 use function readfile;
 use function rename;
-use function touch;
 use function unlink;
 
 /**
@@ -286,7 +285,7 @@ final class File extends NativeRuntime {
      * Note that this parameter is applied to the stream processed by the filters.
      * </p>
      *
-     * @throws \FireHub\Runtime\Exception\FileReadException If we can't get content from a path.
+     * @throws \FireHub\Runtime\Exception\ReadFileException If we can't get content from a path.
      *
      * @return string The read data.
      *
@@ -296,7 +295,7 @@ final class File extends NativeRuntime {
     public static function getContent (string $path, int $offset = 0, ?int $length = null):string {
 
         return ($content = file_get_contents($path, false, null, $offset, $length)) !== false
-            ? $content : throw new FileReadException;
+            ? $content : throw new ReadFileException;
 
     }
 
@@ -314,7 +313,7 @@ final class File extends NativeRuntime {
      * Omit a newline at the end of each array element.
      * </p>
      *
-     * @throws \FireHub\Runtime\Exception\FileReadException If we can't get content from a path.
+     * @throws \FireHub\Runtime\Exception\ReadFileException If we can't get content from a path.
      *
      * @return list<string> The file contents as an array of lines.
      *
@@ -340,7 +339,7 @@ final class File extends NativeRuntime {
             $ignore_new_lines => FILE_IGNORE_NEW_LINES,
             default => 0
         })) !== false
-            ? $content : throw new FileReadException;
+            ? $content : throw new ReadFileException;
 
     }
 
@@ -388,44 +387,6 @@ final class File extends NativeRuntime {
             $lock => LOCK_EX,
             default => 0
         }) ?: throw new FileWriteException;
-
-    }
-
-    /**
-     * ### Sets last access and modification time of a path
-     *
-     * Attempts to set the access and modification times of the file named in the filename parameter to the value
-     * given in mtime. Note that the access time is always modified, regardless of the number of parameters.
-     * @since 1.0.0
-     *
-     * @param non-empty-string $path <p>
-     * Path to file or folder.
-     * </p>
-     * @param null|int $last_accessed [optional] <p>
-     * f not null, the access time of the given filename is set to the value of atime.
-     *
-     * Otherwise, it is set to the value passed to the mtime parameter.
-     *
-     * If both are null, the current system time is used.
-     * </p>
-     * @param null|int $last_modified [optional] <p>
-     * The modifed time.
-     *
-     * If $last_modified is null, the current system time() is used.
-     * </p>
-     *
-     * @throws \FireHub\Runtime\Exception\FileTimestampException If failed to set the last access and modification
-     * time of a path.
-     *
-     * @return true True on success.
-     *
-     * @note If the file doesn't exist, it will be created.
-     * @note Note that time resolution may differ from one file system to another.
-     */
-    public static function setTimestamps (string $path, ?int $last_accessed = null, ?int $last_modified = null):true {
-
-        return touch($path, $last_modified, $last_accessed)
-            ?: throw new FileTimestampException;
 
     }
 

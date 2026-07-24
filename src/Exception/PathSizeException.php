@@ -16,16 +16,16 @@ namespace FireHub\Runtime\Exception;
 use FireHub\Core\Exception\Runtime\FileSystemException;
 
 /**
- * ### Represents a failure caused by an invalid file timestamp provided to an operation that requires a valid file timestamp
+ * ### Represents a failure caused by an invalid path size provided to an operation that requires a valid file size
  * @since 1.0.0
  */
-final class FileTimestampException extends FileSystemException {
+final class PathSizeException extends FileSystemException {
 
     /**
      * @inheritDoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'The provided file timestamp is invalid.';
+    protected const string DEFAULT_MESSAGE = 'The provided path size is invalid.';
 
 }
