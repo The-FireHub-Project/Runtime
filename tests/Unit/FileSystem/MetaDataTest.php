@@ -16,7 +16,7 @@ namespace FireHub\Tests\Runtime\Unit\FileSystem;
 use FireHub\Testing\FileSystemTestCase;
 use FireHub\Runtime\FileSystem;
 use FireHub\Runtime\Exception\ {
-    PathGroupException, PathInodeException, PathSizeException, PathTimestampException
+    PathGroupException, PathInodeException, PathOwnerException, PathSizeException, PathTimestampException
 };
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DependsExternal, Group, RequiresOperatingSystemFamily, Small, TestWith
@@ -289,6 +289,101 @@ final class MetaDataTest extends FileSystemTestCase {
 
         $this->suppressPhpErrors(
             fn() => FileSystem\Metadata::setGroup($this->temp_folder.$path, 0)
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathOwnerException
+     *
+     * @return void
+     */
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testGetOwner (string $path):void  {
+
+        $group = FileSystem\Metadata::getOwner($this->temp_folder.$path);
+
+        self::assertGreaterThanOrEqual(0, $group);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @param string $path
+     *
+     * @return void
+     */
+    #[TestWith(['/test_unknown.txt'])]
+    public function testGetOwnerException (string $path):void {
+
+        $this->expectException(PathOwnerException::class);
+
+        $this->suppressPhpErrors(
+            fn() => FileSystem\Metadata::getOwner($this->temp_folder.$path)
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathOwnerException
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Linux')]
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testSetOwnerLinux (string $path):void {
+
+        self::assertTrue(
+            FileSystem\Metadata::setOwner(
+                $this->temp_folder.$path,
+                FileSystem\Metadata::getOwner($this->temp_folder.$path)
+            )
+        );
+
+    }
+
+    /**
+     * @param string $path
+     *
+     * @throws \FireHub\Runtime\Exception\PathOwnerException
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Darwin')]
+    #[DependsExternal(FileTest::class, 'testPutContent')]
+    #[TestWith(['/test.txt'])]
+    public function testSetOwnerDarwin (string $path):void {
+
+        self::assertTrue(
+            FileSystem\Metadata::setOwner(
+                $this->temp_folder.$path,
+                FileSystem\Metadata::getOwner($this->temp_folder.$path)
+            )
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @param string $path
+     *
+     * @return void
+     */
+    #[TestWith(['/test_unknown.txt'])]
+    public function testSetOwnerException (string $path):void {
+
+        $this->expectException(PathOwnerException::class);
+
+        $this->suppressPhpErrors(
+            fn() => FileSystem\Metadata::setOwner($this->temp_folder.$path, 0)
         );
 
     }

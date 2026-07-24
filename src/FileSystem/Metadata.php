@@ -15,7 +15,7 @@ namespace FireHub\Runtime\FileSystem;
 
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
 use FireHub\Runtime\Exception\ {
-    PathGroupException, PathInodeException, PathSizeException, PathTimestampException
+    PathGroupException, PathInodeException, PathOwnerException, PathSizeException, PathTimestampException
 };
 
 use function chgrp;
@@ -275,6 +275,58 @@ final class Metadata extends NativeRuntime {
 
         return chgrp($path, $group)
             ?: throw new PathGroupException;
+
+    }
+
+    /**
+     * ### Gets a file or folder owner
+     * @since 1.0.0
+     *
+     * @param non-empty-string $path <p>
+     * Path of the file or folder.
+     * </p>
+     *
+     * @throws \FireHub\Runtime\Exception\PathOwnerException If we couldn't get an owner for a file or folder.
+     *
+     * @return non-negative-int The user ID of the owner for the file or folder.
+     *
+     * @warning This method doesn't work on Windows.
+     * @note The results of this function are cached.
+     * See Metadata::clearCache() for more details.
+     * @tip Use posix_getpwuid() to resolve it to a username.
+     */
+    public static function getOwner (string $path):int {
+
+        return ($owner = fileowner($path)) === false
+            ? throw new PathOwnerException
+            : $owner;
+
+    }
+
+    /**
+     * ### Gets a file or folder owner
+     * @since 1.0.0
+     *
+     * @param non-empty-string $path <p>
+     * Pth of the file or folder.
+     * </p>
+     * @param non-empty-string|int $user <p>
+     * A username or number.
+     * </p>
+     *
+     * @throws \FireHub\Runtime\Exception\PathOwnerException If we couldn't get an owner for a file or folder.
+     *
+     * @return true True on success.
+     *
+     * @warning This method doesn't work on Windows.
+     * @note This function will not work on remote files as the file to be examined must be accessible via the
+     * server's filesystem.
+     * @tip Use posix_getpwuid() to resolve it to a username.
+     */
+    public static function setOwner (string $path, string|int $user):true {
+
+        return chown($path, $user)
+            ?: throw new PathOwnerException;
 
     }
 
