@@ -128,7 +128,7 @@ final class Path extends NativeRuntime {
         $path_info = pathinfo($path);
 
         return [
-            'dirname' => $path_info['dirname'] ?? null,
+            'dirname' => $path_info['dirname'] ?? null, // @phpstan-ignore nullCoalesce.unnecessary
             'basename' => $path_info['basename'],
             'extension' => $path_info['extension'] ?? null,
             'filename' => $path_info['filename']
