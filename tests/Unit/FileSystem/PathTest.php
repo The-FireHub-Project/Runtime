@@ -119,7 +119,7 @@ final class PathTest extends FileSystemTestCase {
 
         $this->expectException(PathResolutionException::class);
 
-        self::assertIsString(FileSystem\Path::absolute('x'));
+        self::assertIsString(FileSystem\Path::absolute('unknown'));
 
     }
 

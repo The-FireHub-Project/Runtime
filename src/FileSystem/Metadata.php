@@ -386,10 +386,7 @@ final class Metadata extends NativeRuntime {
      * Attempts to change the mode of the specified path to that given in permissions.
      * @since 1.0.0
      *
-     * @uses \FireHub\Runtime\Str\SB\Transform::format() To format a string.
-     * @uses \FireHub\Runtime\Number::baseConverter() To convert a number to a base.
-     * @uses \FireHub\Core\Meta\Enum\Number\Base::DECIMAL To convert a number to a base.
-     * @uses \FireHub\Core\Meta\Enum\Number\Base::OCTAL To convert a number to a base.
+     * @uses \FireHub\Core\Type\FileSystem\PermissionMode::decimal() To get decimal value of a permission mode.
      *
      * @param non-empty-string $path <p>
      * The path.
@@ -399,7 +396,6 @@ final class Metadata extends NativeRuntime {
      * </p>
      *
      * @throws \FireHub\Runtime\Exception\PathPermissionsException If failed to set permissions for a path.
-     * @throws \FireHub\Runtime\Exception\InvalidNumberBaseException If failed to convert a number to a base.
      *
      * @return True Only true.
      *
@@ -411,18 +407,7 @@ final class Metadata extends NativeRuntime {
      */
     public static function setPermissions (string $path, PermissionMode $mode):true {
 
-        return chmod(
-            $path,
-            (int)Number::baseConverter(
-                Str\SB\Transform::format(
-                    '0%d%d%d',
-                    $mode->owner->value,
-                    $mode->group->value,
-                    $mode->other->value
-                ),
-                BASE::OCTAL,
-                BASE::DECIMAL
-            )
+        return chmod($path, $mode->decimal()
         ) ?: throw new PathPermissionsException;
 
     }

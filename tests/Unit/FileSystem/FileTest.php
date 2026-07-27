@@ -214,6 +214,7 @@ final class FileTest extends FileSystemTestCase {
      *
      * @param non-negative-int $expected
      * @param string $path
+     * @param string $output
      *
      * @throws \FireHub\Runtime\Exception\ReadFileException
      * @throws \FireHub\Runtime\Exception\EmptyPathException
@@ -221,10 +222,17 @@ final class FileTest extends FileSystemTestCase {
      * @return void
      */
     #[Depends('testPutContent')]
-    #[TestWith([5, '/test.txt'])]
-    public function testRead (int $expected, string $path):void {
+    #[TestWith([5, '/test.txt', 'hallo'])]
+    public function testRead (int $expected, string $path, string $output):void {
 
-        self::assertSame($expected, FileSystem\File::read($this->temp_folder.$path));
+        ob_start();
+
+        $bytes = FileSystem\File::read($this->temp_folder.$path);
+
+        $output = ob_get_clean();
+
+        self::assertSame($expected, $bytes);
+        self::assertSame($output, $output);
 
     }
 
@@ -279,7 +287,7 @@ final class FileTest extends FileSystemTestCase {
      */
     #[Depends('testPutContent')]
     #[TestWith([
-        ["hallo"],
+        ['hallo'],
         '/test.txt'
     ])]
     public function testGetContentAsArray (array $expected, string $path, bool $skip_empty_lines = false, bool $ignore_new_lines = false):void {
