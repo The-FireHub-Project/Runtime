@@ -10,7 +10,7 @@
     "ext-mbstring": "*"
   },
   "require-dev": {
-    "the-firehub-project/core-standard": "dev-architecture/runtime-support",
+    "the-firehub-project/core-standard": "dev-develop",
 
     "phpstan/phpstan": "^2.0",
     "the-firehub-project/phpstan-rules": "dev-develop",
