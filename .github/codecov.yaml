@@ -1,0 +1,11 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 70%
+
+component_management:
+  default_rules:
+    statuses:
+      - type: project
+        target: auto
