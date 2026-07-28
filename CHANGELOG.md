@@ -10,5 +10,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [v0.1.0] – 2026-07-28
 
 ### Added
-
-- Implement Initial wrapper utility classes ([#2](https://github.com/The-FireHub-Project/Runtime/pull/2))
+* Implement Initial wrapper utility classes by @dieselxxx in https://github.com/The-FireHub-Project/Runtime/pull/2
