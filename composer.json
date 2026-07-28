@@ -7,11 +7,11 @@
   "license": "Apache-2.0",
   "require": {
     "php": "^8.5",
-    "ext-mbstring": "*"
+    "ext-mbstring": "*",
+
+    "the-firehub-project/core-standard": "dev-develop"
   },
   "require-dev": {
-    "the-firehub-project/core-standard": "dev-develop",
-
     "phpstan/phpstan": "^2.0",
     "the-firehub-project/phpstan-rules": "dev-develop",
 
