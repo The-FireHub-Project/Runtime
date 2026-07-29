@@ -38,7 +38,7 @@ final class Iterator extends NativeRuntime {
      * Copy the elements of an iterator into an array.
      * @since 1.0.0
      *
-     * @template TKey of array-key
+     * @template TKey
      * @template TValue
      *
      * @param iterable<TKey, TValue> $iterator <p>
@@ -54,7 +54,8 @@ final class Iterator extends NativeRuntime {
      * to integers.
      * </p>
      *
-     * @return ($preserve_keys is true ? array<TKey, TValue> : list<TValue>) An array containing items of the iterator.
+     * @return ($preserve_keys is true ? array<(int&TKey)|(string&TKey), TValue> : list<TValue>) An array containing
+     * items of the iterator.
      *
      * @note If this parameter $preserve_keys is not set or set to true, duplicate keys will be overwritten.
      * The last value with a given key will be in the returned array.
@@ -62,7 +63,7 @@ final class Iterator extends NativeRuntime {
      */
     public static function toArray (iterable $iterator, bool $preserve_keys = true):array {
 
-        return iterator_to_array($iterator, $preserve_keys);
+        return iterator_to_array($iterator, $preserve_keys); // @phpstan-ignore return.type
 
     }
 
