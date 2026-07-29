@@ -13,6 +13,10 @@
 
 namespace FireHub\Tests\Runtime\Stubs;
 
+use FireHub\Testing\Stubs\ {
+    EmptyClass, EmptyInterface, EmptyTrait
+};
+
 /**
  * ### Filled class
  * @since 1.0.0

@@ -16,7 +16,7 @@ namespace FireHub\Tests\Runtime\Unit;
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\Constant;
 use FireHub\Runtime\Exception\{
-    CannotDefineConstantException, ConstantAlreadyDefinedException, UndefinedConstantException
+    ConstantAlreadyDefinedException, UndefinedConstantException
 };
 use FireHub\Tests\Runtime\DataProviders\ConstantDataProvider;
 use PHPUnit\Framework\Attributes\ {

@@ -15,9 +15,8 @@ namespace FireHub\Tests\Runtime\Unit;
 
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\ObjectModel;
-use FireHub\Tests\Runtime\Stubs\ {
-    EmptyClass, FilledClass
-};
+use FireHub\Tests\Runtime\Stubs\FilledClass;
+use FireHub\Testing\Stubs\EmptyClass;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Group, Small, TestWith
 };
