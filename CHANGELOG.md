@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.1.1] – 2026-07-29
+
+### Added
+* Refine `Iterator::toArray` PHPDoc by @dieselxxx
+
 ## [v0.1.0] – 2026-07-28
 
 ### Added
