@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.1.3](https://github.com/The-FireHub-Project/Runtime/compare/v0.1.2...v0.1.3)] – 2026-08-03
+
+### Added
+* Add `RegexFlag` enum by @dieselxxx
+
 ## [[v0.1.2](https://github.com/The-FireHub-Project/Runtime/compare/v0.1.1...v0.1.2)] – 2026-07-29
 
 ### Added
