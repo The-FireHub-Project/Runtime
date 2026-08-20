@@ -115,7 +115,7 @@ final class Math extends NativeRuntime {
      *
      * @return bool True if a number is 'not a number', false otherwise.
      */
-    public static function isNan (float $number):bool {
+    public static function isNaN (float $number):bool {
 
         return is_nan($number);
 
@@ -198,7 +198,7 @@ final class Math extends NativeRuntime {
      * The numeric value to process.
      * </p>
      *
-     * @return ($number is int ? int : float) The absolute value of number.
+     * @return ($number is int ? non-negative-int : float) The absolute value of number.
      */
     public static function abs (float|int $number):float|int {
 
