@@ -156,7 +156,7 @@ final class FolderTest extends FileSystemTestCase {
     #[DependsExternal(FileTest::class, 'testPutContent')]
     public function testList (?Order $order = null):void {
 
-        self::assertSame(
+        self::assertEqualsCanonicalizing(
             [
                 '.',
                 '..',

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.2.1](https://github.com/The-FireHub-Project/Runtime/compare/v0.2.0...v0.2.1)] – 2026-08-31
+
+### Added
+* Improved PHP docs by @dieselxxx
+
 ## [[v0.2.0](https://github.com/The-FireHub-Project/Runtime/compare/v0.1.5...v0.2.0)] – 2026-08-31
 
 ### Added

@@ -26,6 +26,11 @@ trait Divide {
 
     /**
      * ### Divides one decimal value by another
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Runtime\Math\DecimalEngine::normalize() To normalize the decimal values.
+     * @uses \FireHub\Runtime\Math\DecimalEngine::dividePositive() To divide the positive decimal values.
+     *
      * @param non-empty-string $left <p>
      * The dividend.
      * </p>
@@ -36,15 +41,11 @@ trait Divide {
      * The number of decimal places to calculate.
      * </p>
      *
-     * @return string The quotient of the two decimal values.
-     *@throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If either decimal value is invalid.
+     * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If either decimal value is invalid.
      * @throws \FireHub\Runtime\Exception\InvalidScaleNumberException If the scale is less than zero.
      * @throws DivisionByZeroError If the divisor is zero.
      *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Runtime\Math\DecimalEngine::normalize() To normalize the decimal values.
-     * @uses \FireHub\Runtime\Math\DecimalEngine::dividePositive() To divide the positive decimal values.
+     * @return numeric-string The quotient of the two decimal values.
      *
      */
     public static function divide (string $left, string $right, int $scale = 18):string {
@@ -55,11 +56,9 @@ trait Divide {
         if ($scale < 0)
             throw new InvalidScaleNumberException('Scale must be greater than or equal to zero.');
 
-        if ($right_integer === '0' && $right_fraction === '')
-            throw new DivisionByZeroError;
+        if ($right_integer === '0' && $right_fraction === '') throw new DivisionByZeroError;
 
-        if ($left_integer === '0' && $left_fraction === '')
-            return '0';
+        if ($left_integer === '0' && $left_fraction === '') return '0';
 
         $result = self::dividePositive(
             $left_integer,
@@ -69,7 +68,8 @@ trait Divide {
             $scale
         );
 
-        if ($left_sign !== $right_sign && $result !== '0') return '-'.$result;
+        /** @var numeric-string $result */
+        if ($left_sign !== $right_sign && $result !== '0') return '-'.$result; // @phpstan-ignore return.type
 
         return $result;
 
@@ -105,7 +105,7 @@ trait Divide {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If the value is not a valid decimal number.
      *
-     * @return string The quotient.
+     * @return numeric-string The quotient.
      */
     private static function dividePositive (string $left_integer, string $left_fraction, string $right_integer, string $right_fraction, int $scale):string {
 
@@ -162,7 +162,8 @@ trait Divide {
 
         }
 
-        $quotient = Runtime\Str\SB\Transform::trim($quotient, Side::LEFT, '0') ?: '0';
+        /** @var numeric-string $quotient */
+        $quotient = Runtime\Str\SB\Transform::trim($quotient, Side::LEFT, '0') ?: '0'; // @phpstan-ignore varTag.nativeType
 
         $fraction = '';
         for ($i = 0; $i < $scale; ++$i) {
@@ -200,7 +201,8 @@ trait Divide {
 
         if ($fraction === '') return $quotient;
 
-        return $quotient.'.'.$fraction;
+        /** @var numeric-string */
+        return $quotient.'.'.$fraction; // @phpstan-ignore varTag.nativeType
 
     }
 

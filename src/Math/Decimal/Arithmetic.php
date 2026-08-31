@@ -40,7 +40,7 @@ trait Arithmetic {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If either decimal value is not a valid decimal number.
      *
-     * @return string The sum of the two decimal values.
+     * @return numeric-string The sum of the two decimal values.
      */
     public static function add (string $left, string $right):string {
 
@@ -56,7 +56,8 @@ trait Arithmetic {
                 $right_fraction
             );
 
-            return $left_sign === '-' && $result !== '0'
+            /** @var numeric-string $result */
+            return $left_sign === '-' && $result !== '0' // @phpstan-ignore return.type
                 ? '-'.$result
                 : $result;
 
@@ -80,7 +81,8 @@ trait Arithmetic {
                 $right_fraction
             );
 
-            return $left_sign === '-' && $result !== '0'
+            /** @var numeric-string $result */
+            return $left_sign === '-' && $result !== '0' // @phpstan-ignore return.type
                 ? '-'.$result
                 : $result;
 
@@ -93,7 +95,8 @@ trait Arithmetic {
             $left_fraction
         );
 
-        return $right_sign === '-' && $result !== '0'
+        /** @var numeric-string $result */
+        return $right_sign === '-' && $result !== '0' // @phpstan-ignore return.type
             ? '-'.$result
             : $result;
 
@@ -116,7 +119,7 @@ trait Arithmetic {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If either decimal value is not a valid decimal number.
      *
-     * @return string The difference between the two decimal values.
+     * @return numeric-string The difference between the two decimal values.
      */
     public static function subtract (string $left, string $right):string {
 
@@ -157,7 +160,7 @@ trait Arithmetic {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If the value is not a valid decimal number.
      *
-     * @return string The sum of the two positive decimal values.
+     * @return numeric-string The sum of the two positive decimal values.
      */
     private static function addPositive (string $left_integer, string $left_fraction, string $right_integer, string $right_fraction):string {
 
@@ -227,7 +230,7 @@ trait Arithmetic {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If the value is not a valid decimal number.
      *
-     * @return string The difference between the two positive decimal values.
+     * @return numeric-string The difference between the two positive decimal values.
      */
     private static function subtractPositive (string $left_integer, string $left_fraction, string $right_integer, string $right_fraction):string {
 
