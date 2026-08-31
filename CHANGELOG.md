@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.2.0](https://github.com/The-FireHub-Project/Runtime/compare/v0.1.5...v0.2.0)] – 2026-08-31
+
+### Added
+* Add `DecimalEngine` enum by @dieselxxx
+
 ## [[v0.1.5](https://github.com/The-FireHub-Project/Runtime/compare/v0.1.4...v0.1.5)] – 2026-08-20
 
 ### Fixed
