@@ -523,4 +523,60 @@ final class DecimalEngineTest extends FireHubTestCase {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @param string $expected
+     * @param non-empty-string $left
+     * @param non-empty-string $right
+     *
+     * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException
+     * @throws \DivisionByZeroError
+     *
+     * @return void
+     */
+    #[TestWith(['1', '10', '3'])]
+    #[TestWith(['2', '11', '3'])]
+    #[TestWith(['0', '12', '3'])]
+    #[TestWith(['1', '13', '3'])]
+    #[TestWith(['2', '14', '3'])]
+    #[TestWith(['0', '0', '3'])]
+    #[TestWith(['0', '3', '3'])]
+    #[TestWith(['1', '4', '3'])]
+    #[TestWith(['2', '5', '3'])]
+    #[TestWith(['-1', '-10', '3'])]
+    #[TestWith(['-2', '-11', '3'])]
+    #[TestWith(['0', '-12', '3'])]
+    #[TestWith(['-1', '-13', '3'])]
+    #[TestWith(['1', '10', '-3'])]
+    #[TestWith(['2', '11', '-3'])]
+    #[TestWith(['0', '12', '-3'])]
+    #[TestWith(['-1', '-10', '-3'])]
+    #[TestWith(['-2', '-11', '-3'])]
+    #[TestWith(['0', '-12', '-3'])]
+    #[TestWith(['0.34', '12.34', '4'])]
+    #[TestWith(['0.34', '12.34', '4.0'])]
+    #[TestWith(['1.34', '13.34', '4'])]
+    #[TestWith(['0.5', '10.5', '5'])]
+    #[TestWith(['0.25', '10.25', '5'])]
+    #[TestWith(['0.01', '10.01', '5'])]
+    #[TestWith(['2.23', '12.23', '2.5'])]
+    #[TestWith(['0.1', '1.1', '0.5'])]
+    #[TestWith(['0', '1.5', '0.5'])]
+    #[TestWith(['0.34', '12.34', '4.0'])]
+    #[TestWith(['1.34', '13.34', '4.0'])]
+    #[TestWith(['0.02', '1.02', '0.5'])]
+    #[TestWith(['0.25', '1.25', '0.5'])]
+    #[TestWith(['1', '100000000000000000000000000000000000001', '100000000000000000000000000000000000000'])]
+    #[TestWith(['999999999999999999', '1999999999999999999', '1000000000000000000'])]
+    #[TestWith(['0', '100000000000000000000000000000000000000', '100000000000000000000000000000000000000'])]
+    #[TestWith(['1', '0000010', '0000003'])]
+    #[TestWith(['0.5', '0010.5', '5'])]
+    #[TestWith(['0.5', '10.5000', '5.0000'])]
+    public function testMod (string $expected, string $left, string $right):void {
+
+        self::assertSame($expected, DecimalEngine::mod($left, $right));
+
+    }
+
 }
