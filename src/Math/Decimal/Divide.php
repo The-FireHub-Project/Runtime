@@ -37,7 +37,7 @@ trait Divide {
      * @param non-empty-string $right <p>
      * The divisor.
      * </p>
-     * @param positive-int $scale [optional] <p>
+     * @param non-negative-int $scale [optional] <p>
      * The number of decimal places to calculate.
      * </p>
      *

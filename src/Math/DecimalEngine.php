@@ -16,7 +16,7 @@ namespace FireHub\Runtime\Math;
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
 use FireHub\Core\Meta\Enum\Side;
 use FireHub\Runtime\Math\Decimal\ {
-    Arithmetic, Divide, Multiply, Round
+    Arithmetic, Divide, Mod, Multiply, Round
 };
 use FireHub\Runtime;
 use FireHub\Runtime\Exception\InvalidDecimalNumberException;
@@ -37,7 +37,7 @@ final class DecimalEngine extends NativeRuntime {
      * ### Implements operations
      * @since 1.0.0
      */
-    use Arithmetic, Divide, Multiply, Round;
+    use Arithmetic, Divide, Mod, Multiply, Round;
 
     /**
      * ### Compares two positive decimal values
