@@ -48,7 +48,7 @@ trait Round {
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If the value is not a valid decimal number.
      * @throws \FireHub\Runtime\Exception\InvalidPrecisionException If the precision is less than zero.
      *
-     * @return string The rounded decimal value.
+     * @return numeric-string The rounded decimal value.
      */
     public static function round (string $value, int $precision = 0, RoundMode $mode = RoundMode::HALF_AWAY_FROM_ZERO):string {
 
@@ -57,7 +57,7 @@ trait Round {
         if ($precision < 0) throw new InvalidPrecisionException('Precision must be greater than or equal to zero.');
 
         if (Runtime\Str\SB\Inspection::length($fraction) <= $precision)
-            return $sign === '-' && ($integer !== '0' || $fraction !== '')
+            return $sign === '-' && ($integer !== '0' || $fraction !== '') // @phpstan-ignore return.type
                 ? '-'.$integer.($fraction !== '' ? '.'.$fraction : '')
                 : $integer.($fraction !== '' ? '.'.$fraction : '');
 
@@ -97,7 +97,8 @@ trait Round {
 
         } else $result = $integer;
 
-        return $sign === '-' && $result !== '0'
+        /** @var numeric-string $result */
+        return $sign === '-' && $result !== '0' // @phpstan-ignore return.type
             ? '-'.$result
             : $result;
 

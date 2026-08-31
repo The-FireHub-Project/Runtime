@@ -39,7 +39,7 @@ trait Multiply {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If either decimal value is not a valid decimal number.
      *
-     * @return string The product of the two decimal values.
+     * @return numeric-string The product of the two decimal values.
      */
     public static function multiply (string $left, string $right):string {
 
@@ -57,7 +57,8 @@ trait Multiply {
             $right_fraction
         );
 
-        if ($left_sign !== $right_sign && $result !== '0') return '-'.$result;
+        /** @var numeric-string $result */
+        if ($left_sign !== $right_sign && $result !== '0') return '-'.$result; // @phpstan-ignore return.type
 
         return $result;
 
@@ -89,7 +90,7 @@ trait Multiply {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If the value is not a valid decimal number.
      *
-     * @return string The product of the two positive decimal values.
+     * @return numeric-string The product of the two positive decimal values.
      */
     private static function multiplyPositive (string $left_integer, string $left_fraction, string $right_integer, string $right_fraction):string {
 

@@ -108,7 +108,7 @@ final class DecimalEngine extends NativeRuntime {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If the value is not a valid decimal number.
      *
-     * @return array{'+'|'-', non-empty-string, string} Returns the sign, normalized integer part, and normalized
+     * @return array{'+'|'-', numeric-string, string} Returns the sign, normalized integer part, and normalized
      * fractional part.
      */
     private static function normalize (string $value):array {
@@ -136,6 +136,7 @@ final class DecimalEngine extends NativeRuntime {
 
         if ($integer === '0' && $fraction === '') return ['+', '0', ''];
 
+        /** @var array{'+'|'-', numeric-string, string} */
         return [$sign, $integer, $fraction];
 
     }
@@ -159,7 +160,7 @@ final class DecimalEngine extends NativeRuntime {
      *
      * @throws \FireHub\Runtime\Exception\InvalidDecimalNumberException If the value is not a valid decimal number.
      *
-     * @return string The normalized decimal result.
+     * @return numeric-string The normalized decimal result.
      */
     private static function normalizeResult (string $value, int $scale):string {
 
@@ -173,7 +174,8 @@ final class DecimalEngine extends NativeRuntime {
             .'.'
             .Runtime\Str\SB\Access::part($value, $position);
 
-        return self::normalize($value)[1]
+        /** @var numeric-string */
+        return self::normalize($value)[1] // @phpstan-ignore varTag.type
             .(self::normalize($value)[2] !== ''
                 ? '.'.self::normalize($value)[2]
                 : ''
