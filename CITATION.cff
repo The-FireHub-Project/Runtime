@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: If you use this software, please cite it using the metadata from this file.
 title: The FireHub Project - Runtime
-abstract: Lightweight PHP runtime layer providing clean wrapper functions over native PHP.
+abstract: Lightweight PHP runtime layer providing clean, deterministic utilities for common execution-level operations.
 type: software
 license: Apache-2.0
 

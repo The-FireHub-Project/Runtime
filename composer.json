@@ -1,6 +1,6 @@
 {
   "name": "the-firehub-project/runtime",
-  "description": "Lightweight PHP runtime layer providing clean wrapper functions over native PHP.",
+  "description": "Lightweight PHP runtime layer providing clean, deterministic utilities for common execution-level operations.",
   "type": "library",
   "keywords": ["php", "runtime", "foundation", "firehub"],
   "homepage": "https://the-firehub-project.github.io/runtime",
