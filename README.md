@@ -44,11 +44,13 @@
   /></a>
 </p>
 
-Lightweight PHP runtime abstraction layer providing clean wrapper functions over native PHP. It standardizes common execution patterns through deterministic helpers and ergonomic APIs designed for consistent usage across the FireHub ecosystem.
+Lightweight PHP runtime abstraction layer providing clean, deterministic utilities for common execution-level operations. It standardizes recurring runtime patterns through focused helpers and ergonomic APIs designed for consistent usage across the FireHub ecosystem.
 
-This layer focuses purely on execution-level utilities such as array, string, file, environment, and reflection wrappers, removing repetitive boilerplate while preserving PHP-native behavior.
+This layer provides execution-level functionality such as array, string, file, environment, reflection, copying, and other low-level runtime operations. It reduces repetitive boilerplate and centralizes common execution behavior while preserving predictable and explicit semantics.
 
-It contains no domain logic, no business rules, and no framework coupling. Its role is strictly to improve developer experience at the runtime level while keeping behavior predictable, explicit, and dependency-free.
+It contains no domain logic, business rules, or application-level concerns. It is independent of higher-level framework behavior and focuses exclusively on reusable runtime mechanisms that support the FireHub ecosystem.
+
+Its role is to provide a consistent execution foundation between native PHP capabilities and higher-level FireHub abstractions.
 
 ---
 
