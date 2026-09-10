@@ -86,7 +86,7 @@ final class MB {
     public static function ord (string $character, ?Encoding $encoding = null):int|false {
 
         /** @var non-negative-int|false */
-        return mb_ord($character ?: "\0", $encoding?->value);
+        return mb_ord($character === '' ? "\0" : $character, $encoding?->value);
 
     }
 
