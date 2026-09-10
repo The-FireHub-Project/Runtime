@@ -19,7 +19,7 @@ use FireHub\Core\Meta\Enum\Order;
 use FireHub\Runtime\Type\Arr\ {
     SortFlag, SortType
 };
-use FireHub\Tests\Runtime\DataProviders\ArrDataProvider;
+use FireHub\Testing\DataProviders\ArrDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Group, Small, TestWith
 };

@@ -22,7 +22,7 @@ use FireHub\Runtime\Exception\{
     ArrayToStringConversionException, CannotSerializeException, CannotUnserializeException,
     ResourceTypeConversionException
 };
-use FireHub\Tests\Runtime\DataProviders\DataDataProvider;
+use FireHub\Testing\DataProviders\DataDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Group, Small, TestWith
 };

@@ -19,7 +19,7 @@ use FireHub\Core\Meta\Enum\Side;
 use FireHub\Runtime\Exception\ {
     EmptyPadException, InvalidChunkLengthException
 };
-use FireHub\Tests\Runtime\DataProviders\StrDataProvider;
+use FireHub\Testing\DataProviders\StrDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, DependsExternal, Group, Small, TestWith
 };

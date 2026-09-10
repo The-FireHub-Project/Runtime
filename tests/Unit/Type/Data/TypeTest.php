@@ -17,7 +17,7 @@ use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\Type\Data\ {
     Category, Type
 };
-use FireHub\Tests\Runtime\DataProviders\DataDataProvider;
+use FireHub\Testing\DataProviders\DataDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Group, Small
 };

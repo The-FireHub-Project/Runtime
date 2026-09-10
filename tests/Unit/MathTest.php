@@ -18,7 +18,7 @@ use FireHub\Runtime\Math;
 use FireHub\Runtime\Math\ {
     LogBase, RoundMode
 };
-use FireHub\Tests\Runtime\DataProviders\NumDataProvider;
+use FireHub\Testing\DataProviders\NumDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Depends, Group, Small, TestWith
 };
