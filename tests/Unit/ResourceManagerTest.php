@@ -16,7 +16,7 @@ namespace FireHub\Tests\Runtime\Unit;
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\ResourceManager;
 use FireHub\Runtime\Type\Resource;
-use FireHub\Tests\Runtime\DataProviders\ResourceDataProvider;
+use FireHub\Testing\DataProviders\ResourceDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Depends, Group, Small, TestWith
 };

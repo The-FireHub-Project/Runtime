@@ -16,7 +16,7 @@ namespace FireHub\Tests\Runtime\Unit\Date;
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\Date;
 use FireHub\Core\Type\Date\Zone;
-use FireHub\Tests\Runtime\DataProviders\DateDataProvider;
+use FireHub\Testing\DataProviders\DateDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Group, Small
 };

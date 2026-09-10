@@ -18,7 +18,7 @@ use FireHub\Runtime\Date;
 use FireHub\Runtime\Exception\{
     CannotParseTimestampException, ParseFromFormatException
 };
-use FireHub\Tests\Runtime\DataProviders\DateDataProvider;
+use FireHub\Testing\DataProviders\DateDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Group, Small, TestWith
 };

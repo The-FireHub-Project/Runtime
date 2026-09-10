@@ -15,7 +15,7 @@ namespace FireHub\Tests\Runtime\Unit\Arr;
 
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\Arr;
-use FireHub\Tests\Runtime\DataProviders\ArrDataProvider;
+use FireHub\Testing\DataProviders\ArrDataProvider;
 use FireHub\Testing\Stubs\CountableClass;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Group, Small, TestWith

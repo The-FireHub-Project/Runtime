@@ -18,7 +18,7 @@ use FireHub\Runtime\Constant;
 use FireHub\Runtime\Exception\{
     ConstantAlreadyDefinedException, UndefinedConstantException
 };
-use FireHub\Tests\Runtime\DataProviders\ConstantDataProvider;
+use FireHub\Testing\DataProviders\ConstantDataProvider;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Depends, Group, Small, TestWith
 };

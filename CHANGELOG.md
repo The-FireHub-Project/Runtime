@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.2.6](https://github.com/The-FireHub-Project/Runtime/compare/v0.2.5...v0.2.6)] – 2026-09-11
+
+### Changed
+* Remove legacy data providers from FireHub tests and update references by @dieselxxx
+
 ## [[v0.2.5](https://github.com/The-FireHub-Project/Runtime/compare/v0.2.4...v0.2.5)] – 2026-09-11
 
 ### Fixed
