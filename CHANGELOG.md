@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.2.5](https://github.com/The-FireHub-Project/Runtime/compare/v0.2.4...v0.2.5)] – 2026-09-11
+
+### Fixed
+* Fix improper handling of empty string in `Char::ord` method by @dieselxxx
+
 ## [[v0.2.4](https://github.com/The-FireHub-Project/Runtime/compare/v0.2.3...v0.2.4)] – 2026-09-03
 
 ### Changed
