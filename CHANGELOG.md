@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.3.1](https://github.com/The-FireHub-Project/Runtime/compare/v0.3.0...v0.3.1)] – 2026-09-16
+
+### Added
+* Add `Binary` class for low-level binary operations by @dieselxxx
+
+### Changed
+* refine array type annotations by @dieselxxx
+
 ## [[v0.3.0](https://github.com/The-FireHub-Project/Runtime/compare/v0.2.6...v0.3.0)] – 2026-09-16
 
 ### Added
