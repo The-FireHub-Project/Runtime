@@ -74,7 +74,7 @@ final class Mutation extends NativeRuntime {
      * @param TPushedValue ...$values [optional] <p>
      * The values to push onto the end of the array.
      * </p>
-     * @phpstan-param-out array<TKey, TValue|TPushedValue> $array
+     * @phpstan-param-out array<int|TKey, TValue|TPushedValue> $array
      *
      * @return int The new number of elements in the array.
      *
@@ -83,7 +83,7 @@ final class Mutation extends NativeRuntime {
      */
     public static function push (array &$array, mixed ...$values):int {
 
-        return array_push($array, ...$values);
+        return array_push($array, ...$values); // @phpstan-ignore paramOut.type
 
     }
 
@@ -133,7 +133,7 @@ final class Mutation extends NativeRuntime {
      * @param TUnshiftValue ...$values [optional] <p>
      * The values to prepend.
      * </p>
-     * @phpstan-param-out array<TKey, TValue|TUnshiftValue> $array
+     * @phpstan-param-out array<int|TKey, TValue|TUnshiftValue> $array
      *
      * @return int The new number of elements in the array.
      *
@@ -141,7 +141,7 @@ final class Mutation extends NativeRuntime {
      */
     public static function unshift (array &$array, mixed ...$values):int {
 
-        return array_unshift($array, ...$values);
+        return array_unshift($array, ...$values); // @phpstan-ignore paramOut.type
 
     }
 
