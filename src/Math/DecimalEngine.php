@@ -31,7 +31,7 @@ use FireHub\Runtime\Exception\InvalidDecimalNumberException;
  * developer-facing API remain the responsibility of the Decimal Value Object.
  * @since 1.0.0
  */
-final class DecimalEngine extends NativeRuntime {
+final readonly class DecimalEngine extends NativeRuntime {
 
     /**
      * ### Implements operations

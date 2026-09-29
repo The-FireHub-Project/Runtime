@@ -30,7 +30,7 @@ use function timezone_abbreviations_list;
  * native runtime behavior.
  * @since 1.0.0
  */
-final class Timezone extends NativeRuntime {
+final readonly class Timezone extends NativeRuntime {
 
     /**
      * ### Gets the default timezone used by all date/time functions in a script

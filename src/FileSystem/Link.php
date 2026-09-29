@@ -37,7 +37,7 @@ use function symlink;
  * altering native runtime semantics.
  * @since 1.0.0
  */
-final class Link extends NativeRuntime {
+final readonly class Link extends NativeRuntime {
 
     /**
      * ### Tells whether the path is a symbolic link

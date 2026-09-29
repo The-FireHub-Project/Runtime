@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.1
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -63,7 +63,7 @@ use function tanh;
  * without altering PHP math semantics.
  * @since 1.0.0
  */
-final class Math extends NativeRuntime {
+final readonly class Math extends NativeRuntime {
 
     /**
      * ### Finds whether a value is a legal finite number

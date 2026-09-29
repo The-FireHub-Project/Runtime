@@ -52,7 +52,7 @@ use function touch;
  * altering native runtime semantics.
  * @since 1.0.0
  */
-final class Metadata extends NativeRuntime {
+final readonly class Metadata extends NativeRuntime {
 
     /**
      * ### Gets file size

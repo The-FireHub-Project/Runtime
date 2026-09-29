@@ -35,7 +35,7 @@ use function random_int;
  * without altering PHP randomness semantics.
  * @since 1.0.0
  */
-final class Random extends NativeRuntime {
+final readonly class Random extends NativeRuntime {
 
     /**
      * ### Generate a random value via the Mersenne Twister Random Number Generator

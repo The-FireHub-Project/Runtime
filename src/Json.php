@@ -36,7 +36,7 @@ use function json_validate;
  * without altering PHP JSON semantics.
  * @since 1.0.0
  */
-final class Json extends NativeRuntime {
+final readonly class Json extends NativeRuntime {
 
     /**
      * ### JSON representation of a value

@@ -26,7 +26,7 @@ use function mktime;
  * native runtime behavior.
  * @since 1.0.0
  */
-final class Timestamp extends NativeRuntime {
+final readonly class Timestamp extends NativeRuntime {
 
     /**
      * ### Format a Unix timestamp

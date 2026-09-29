@@ -30,7 +30,7 @@ use function strtotime;
  * native PHP behavior.
  * @since 1.0.0
  */
-final class Parse extends NativeRuntime {
+final readonly class Parse extends NativeRuntime {
 
     /**
      * ### Returns associative array with detailed info about the given date/time

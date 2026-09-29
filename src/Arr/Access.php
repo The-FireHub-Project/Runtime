@@ -43,7 +43,7 @@ use function array_values;
  * without introducing domain logic, framework coupling, or additional abstraction overhead.
  * @since 1.0.0
  */
-final class Access extends NativeRuntime {
+final readonly class Access extends NativeRuntime {
 
     /**
      * ### Checks if the given key or index exists in the array

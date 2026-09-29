@@ -32,7 +32,7 @@ use Closure, ReflectionException, ReflectionObject;
  * Circular object references are preserved during the copy operation.
  * @since 1.0.0
  */
-final class Copy extends NativeRuntime {
+final readonly class Copy extends NativeRuntime {
 
     /**
      * ### Creates a deep copy of the given value

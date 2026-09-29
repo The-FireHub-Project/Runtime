@@ -31,7 +31,7 @@ use function defined;
  * additional abstraction or changing PHP semantics.
  * @since 1.0.0
  */
-final class Constant extends NativeRuntime {
+final readonly class Constant extends NativeRuntime {
 
     /**
      * ### Checks whether a given named constant exists

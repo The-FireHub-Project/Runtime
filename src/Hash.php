@@ -40,7 +40,7 @@ use function hash_pbkdf2;
  * hashing semantics.
  * @since 1.0.0
  */
-final class Hash extends NativeRuntime {
+final readonly class Hash extends NativeRuntime {
 
     /**
      * ### Generates a hash value

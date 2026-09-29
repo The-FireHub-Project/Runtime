@@ -37,7 +37,7 @@ use function unserialize;
  * without introducing domain logic, framework coupling, or additional abstraction overhead.
  * @since 1.0.0
  */
-final class Data extends NativeRuntime {
+final readonly class Data extends NativeRuntime {
 
     /**
      * ### Gets the type name of a variable in a way that is suitable for debugging

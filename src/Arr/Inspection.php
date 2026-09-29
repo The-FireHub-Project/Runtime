@@ -38,7 +38,7 @@ use function in_array;
  * This component contains no domain logic, no framework coupling, and no business rules.
  * @since 1.0.0
  */
-final class Inspection extends NativeRuntime {
+final readonly class Inspection extends NativeRuntime {
 
     /**
      * ### Checks if all array elements satisfy a callback function

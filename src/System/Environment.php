@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.0
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -30,7 +30,7 @@ use function sys_get_temp_dir;
  * operating system or process environment semantics.
  * @since 1.0.0
  */
-final class Environment extends NativeRuntime {
+final readonly class Environment extends NativeRuntime {
 
     /**
      * ### Gets the value of a single or all the environment variables

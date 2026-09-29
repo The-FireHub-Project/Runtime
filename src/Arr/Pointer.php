@@ -34,7 +34,7 @@ use function reset;
  * operations without introducing domain logic, framework coupling, or additional abstraction overhead.
  * @since 1.0.0
  */
-final class Pointer extends NativeRuntime {
+final readonly class Pointer extends NativeRuntime {
 
     /**
      * ### Return the current element in an array

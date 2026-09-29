@@ -30,7 +30,7 @@ use function iterator_to_array;
  * without altering PHP iterator semantics.
  * @since 1.0.0
  */
-final class Iterator extends NativeRuntime {
+final readonly class Iterator extends NativeRuntime {
 
     /**
      * ### Copy the iterator into an array

@@ -33,7 +33,7 @@ use function realpath;
  * native runtime semantics.
  * @since 1.0.0
  */
-final class Path extends NativeRuntime {
+final readonly class Path extends NativeRuntime {
 
     /**
      * ### Returns a trailing name component of a path
