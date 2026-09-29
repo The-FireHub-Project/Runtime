@@ -28,7 +28,7 @@ use FireHub\Runtime\Exception\ {
  * autoload execution semantics.
  * @since 1.0.0
  */
-final class SplAutoload extends NativeRuntime {
+final readonly class SplAutoload extends NativeRuntime {
 
     /**
      * ### Register a callback function as an autoloader

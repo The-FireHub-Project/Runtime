@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -26,7 +26,7 @@ use function spl_object_id;
  * This component exposes native PHP object identity operations used for object comparison, tracking, and indexing.
  * @since 1.0.0
  */
-final class Identity extends NativeRuntime {
+final readonly class Identity extends NativeRuntime {
 
     /**
      * ### Return the integer object handle for a given object

@@ -26,7 +26,7 @@ use function idate;
  * Provides low-level wrappers for formatting Unix timestamps into human-readable date and time representations while
  * preserving native PHP formatting behavior.
  */
-final class Format extends NativeRuntime {
+final readonly class Format extends NativeRuntime {
 
     /**
      * ### Format a Unix timestamp

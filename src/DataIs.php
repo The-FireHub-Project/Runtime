@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -39,7 +39,7 @@ use function is_string;
  * without introducing conversion, transformation, or additional abstraction logic.
  * @since 1.0.0
  */
-final class DataIs extends NativeRuntime {
+final readonly class DataIs extends NativeRuntime {
 
     /**
      * ### Checks whether the value is an array

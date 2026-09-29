@@ -38,7 +38,7 @@ use function php_ini_loaded_file;
  * altering the underlying PHP configuration system.
  * @since 1.0.0
  */
-final class Configuration extends NativeRuntime {
+final readonly class Configuration extends NativeRuntime {
 
     /**
      * ### Retrieve a path to the loaded php.ini file

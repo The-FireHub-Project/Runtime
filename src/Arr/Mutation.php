@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.0
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -30,7 +30,7 @@ use function array_unshift;
  * without introducing domain logic, framework coupling, or additional abstraction overhead.
  * @since 1.0.0
  */
-final class Mutation extends NativeRuntime {
+final readonly class Mutation extends NativeRuntime {
 
     /**
      * ### Pop the element off the end of an array

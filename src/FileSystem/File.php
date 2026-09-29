@@ -46,7 +46,7 @@ use function unlink;
  * altering native runtime semantics.
  * @since 1.0.0
  */
-final class File extends NativeRuntime {
+final readonly class File extends NativeRuntime {
 
     /**
      * ### Checks whether a file or folder exists

@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -30,7 +30,7 @@ use function get_loaded_extensions;
  * altering extension loading or execution semantics.
  * @since 1.0.0
  */
-final class Extension extends NativeRuntime {
+final readonly class Extension extends NativeRuntime {
 
     /**
      * ### Check if a PHP extension is loaded

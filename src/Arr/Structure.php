@@ -39,7 +39,7 @@ use function range;
  * without introducing domain logic, framework coupling, or additional abstraction overhead.
  * @since 1.0.0
  */
-final class Structure extends NativeRuntime {
+final readonly class Structure extends NativeRuntime {
 
     /**
      * ### Split an array into chunks

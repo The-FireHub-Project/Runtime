@@ -46,7 +46,7 @@ use function scandir;
  * altering native runtime semantics.
  * @since 1.0.0
  */
-final class Folder extends NativeRuntime {
+final readonly class Folder extends NativeRuntime {
 
     /**
      * ### Tells whether the filename is a regular folder

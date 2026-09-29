@@ -34,7 +34,7 @@ use function get_object_vars;
  * information without introducing reflection-based abstractions.
  * @since 1.0.0
  */
-final class Metadata extends NativeRuntime {
+final readonly class Metadata extends NativeRuntime {
 
     /**
      * ### Creates an alias for a class

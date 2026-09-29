@@ -40,7 +40,7 @@ use function mb_trim;
  * transformation operations with support for Unicode-aware character processing.
  * @since 1.0.0
  */
-final class Transform extends NativeRuntime {
+final readonly class Transform extends NativeRuntime {
 
     /**
      * ### Pad a multibyte string to a certain length with another multibyte string

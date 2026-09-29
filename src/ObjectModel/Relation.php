@@ -34,7 +34,7 @@ use function is_subclass_of;
  * runtime behavior.
  * @since 1.0.0
  */
-final class Relation extends NativeRuntime {
+final readonly class Relation extends NativeRuntime {
 
     /**
      * ### Checks whether the object or class is of a given type or subtype

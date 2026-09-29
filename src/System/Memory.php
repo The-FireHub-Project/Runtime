@@ -30,7 +30,7 @@ use function memory_reset_peak_usage;
  * altering native runtime behavior.
  * @since 1.0.0
  */
-final class Memory extends NativeRuntime {
+final readonly class Memory extends NativeRuntime {
 
     /**
      * ### Gets the amount of memory allocated to PHP

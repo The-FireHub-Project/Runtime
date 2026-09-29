@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -29,7 +29,7 @@ use function function_exists;
  * altering function invocation semantics.
  * @since 1.0.0
  */
-final class Func extends NativeRuntime {
+final readonly class Func extends NativeRuntime {
 
     /**
      * ### Checks if the function name exists

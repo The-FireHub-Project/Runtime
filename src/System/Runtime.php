@@ -32,7 +32,7 @@ use function zend_version;
  * runtime detection semantics.
  * @since 1.0.0
  */
-final class Runtime extends NativeRuntime {
+final readonly class Runtime extends NativeRuntime {
 
     /**
      * ### Type of interface between web server and PHP

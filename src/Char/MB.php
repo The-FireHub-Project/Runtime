@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.1
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -31,7 +31,7 @@ use function mb_ord;
  * processing while preserving native PHP behavior, encoding support, and runtime performance.
  * @since 1.0.0
  */
-final class MB {
+final readonly class MB {
 
     /**
      * ### Return character by Unicode code point value

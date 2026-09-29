@@ -34,7 +34,7 @@ use function mb_split;
  * functions while preserving native runtime behavior.
  * @since 1.0.0
  */
-final class Regex extends NativeRuntime {
+final readonly class Regex extends NativeRuntime {
 
     /**
      * ### Perform a regular expression match

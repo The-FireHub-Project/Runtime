@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=8.1
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -30,7 +30,7 @@ use function get_resources;
  * altering native resource semantics.
  * @since 1.0.0
  */
-final class ResourceManager extends NativeRuntime {
+final readonly class ResourceManager extends NativeRuntime {
 
     /**
      * ### Returns an integer identifier for the given resource

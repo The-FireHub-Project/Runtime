@@ -28,7 +28,7 @@ use function getmypid;
  * operating system process semantics.
  * @since 1.0.0
  */
-final class Process extends NativeRuntime {
+final readonly class Process extends NativeRuntime {
 
     /**
      * ### Gets PHP's process ID

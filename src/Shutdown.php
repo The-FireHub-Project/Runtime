@@ -7,7 +7,7 @@
  * @copyright 2026-present The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version >=7.4
+ * @php-version >=8.2
  * @package Runtime
  */
 
@@ -27,7 +27,7 @@ use function register_shutdown_function;
  * shutdown lifecycle semantics.
  * @since 1.0.0
  */
-final class Shutdown extends NativeRuntime {
+final readonly class Shutdown extends NativeRuntime {
 
     /**
      * ### Register a function for execution on shutdown

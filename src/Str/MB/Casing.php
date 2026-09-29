@@ -27,7 +27,7 @@ use FireHub\Runtime\Type\Str\CaseMode;
  * transformation operations with support for Unicode-aware character processing.
  * @since 1.0.0
  */
-final class Casing extends NativeRuntime {
+final readonly class Casing extends NativeRuntime {
 
     /**
      * ### Perform case folding on a string
