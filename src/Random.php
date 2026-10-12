@@ -46,6 +46,7 @@ final readonly class Random extends NativeRuntime {
      * </p>
      * @param null|non-negative-int $max [optional] <p>
      * Optional highest value to be returned.
+     * Defaults to max value supported by the generator.
      * </p>
      *
      * @throws \FireHub\Runtime\Exception\RandomNumberBelowMinimumException If $min is less than 0.
@@ -66,7 +67,11 @@ final readonly class Random extends NativeRuntime {
                 ]
             );
 
-        if ($max !== null && $max < $min)
+        $maximum = mt_getrandmax();
+
+        $max ??= $maximum;
+
+        if ($max < $min)
             throw new RandomMaximumBelowMinimumException(
                 'The maximum value must be greater than or equal to the minimum value.',
                 [
@@ -75,7 +80,7 @@ final readonly class Random extends NativeRuntime {
                 ]
             );
 
-        if ($max !== null && $max > $maximum = mt_getrandmax())
+        if ($max > $maximum)
             throw new RandomNumberAboveGeneratorMaximumException(
                 'The maximum value must be less than or equal to the maximum value supported by the generator.',
                 [
@@ -84,7 +89,7 @@ final readonly class Random extends NativeRuntime {
                 ]
             );
 
-        return mt_rand($min, $max ?? ($maximum ?? 0));
+        return mt_rand($min, $max);
 
     }
 
