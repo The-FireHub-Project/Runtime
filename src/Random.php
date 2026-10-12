@@ -71,7 +71,7 @@ final readonly class Random extends NativeRuntime {
 
         $max ??= $maximum;
 
-        if ($max !== null && $max < $min)
+        if ($max < $min)
             throw new RandomMaximumBelowMinimumException(
                 'The maximum value must be greater than or equal to the minimum value.',
                 [
@@ -80,7 +80,7 @@ final readonly class Random extends NativeRuntime {
                 ]
             );
 
-        if ($max !== null && $max > $maximum)
+        if ($max > $maximum)
             throw new RandomNumberAboveGeneratorMaximumException(
                 'The maximum value must be less than or equal to the maximum value supported by the generator.',
                 [
@@ -89,7 +89,7 @@ final readonly class Random extends NativeRuntime {
                 ]
             );
 
-        return mt_rand($min, $max ?? ($maximum ?? 0));
+        return mt_rand($min, $max);
 
     }
 

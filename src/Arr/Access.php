@@ -377,7 +377,7 @@ final readonly class Access extends NativeRuntime {
         }
 
         /** @var ($number is int<2, max> ? list<TKey> : TKey) */
-        return array_rand($array, $number);
+        return array_rand($array, $number); // @phpstan-ignore varTag.type
 
     }
 
