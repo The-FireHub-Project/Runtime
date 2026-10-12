@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.3.3](https://github.com/The-FireHub-Project/Runtime/compare/v0.3.2...v0.3.3)] – 2026-10-12
+
+### Added
+* Improve Random class maximum value handling for consistency and clarity by @dieselxxx
+
 ## [[v0.3.2](https://github.com/The-FireHub-Project/Runtime/compare/v0.3.1...v0.3.2)] – 2026-09-29
 
 ### Added
