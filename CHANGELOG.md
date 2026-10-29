@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.4.0](https://github.com/The-FireHub-Project/Runtime/compare/v0.3.3...v0.4.0)] – 2026-10-29
+
+### Added
+* Introduced a new `Encoding` class in `Runtime` by @dieselxxx
+
 ## [[v0.3.3](https://github.com/The-FireHub-Project/Runtime/compare/v0.3.2...v0.3.3)] – 2026-10-12
 
 ### Added
