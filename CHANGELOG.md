@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[v0.4.3](https://github.com/The-FireHub-Project/Runtime/compare/v0.4.2...v0.4.3)] – 2026-11-02
+
+### Added
+* Add `$flags` parameter to `Regex::match` for enhanced pattern matching behavior by @dieselxxx
+
 ## [[v0.4.2](https://github.com/The-FireHub-Project/Runtime/compare/v0.4.1...v0.4.2)] – 2026-10-30
 
 ### Added

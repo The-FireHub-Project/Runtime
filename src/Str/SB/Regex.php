@@ -56,6 +56,9 @@ final readonly class Regex extends NativeRuntime {
      * @param null|string[] &$result [optional] <p>
      * Regular expressions match the result.
      * </p>
+     * @param int $flags [optional] <p>
+     * Flags to use for the search.
+     * </p>
      * @param-out array<string>|array<array<int, string>> $result
      *
      * @throws \FireHub\Runtime\Exception\InvalidPatternException If the regular expression pattern is invalid.
@@ -66,11 +69,11 @@ final readonly class Regex extends NativeRuntime {
      * Read the section on Booleans for more information.
      * Use the === operator for testing the return value of this function.
      */
-    public static function match (string $pattern, string $string, int $offset = 0, bool $all = false, ?array &$result = null):bool {
+    public static function match (string $pattern, string $string, int $offset = 0, bool $all = false, ?array &$result = null, int $flags = 0):bool {
 
         $match = $all
-            ? preg_match_all($pattern, $string, $result, offset: $offset)
-            : preg_match($pattern, $string, $result, offset: $offset);
+            ? preg_match_all($pattern, $string, $result, $flags, $offset) // @phpstan-ignore paramOut.type
+            : preg_match($pattern, $string, $result, $flags, $offset); // @phpstan-ignore paramOut.type, argument.type
 
         return $match === false
             ? throw new InvalidPatternException
