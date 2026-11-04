@@ -15,6 +15,11 @@ namespace FireHub\Runtime\Stream;
 
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
 
+use function fread;
+use function fgets;
+use function fgetc;
+use function fpassthru;
+use function fscanf;
 use function stream_get_contents;
 use function stream_get_line;
 
@@ -83,6 +88,107 @@ final readonly class Read extends NativeRuntime {
     public static function line (mixed $stream, int $length, string $delimiter = ''):string|false {
 
         return stream_get_line($stream, $length, $delimiter);
+
+    }
+
+    /**
+     * ### Reads bytes from a stream
+     *
+     * Reads up to the specified number of bytes from the current stream position.
+     *
+     * The returned data may contain fewer bytes than requested.
+     * @since 1.0.0
+     *
+     * @param resource $stream <p>
+     * Stream resource to read from.
+     * </p>
+     * @param positive-int $length <p>
+     * Maximum number of bytes to read.
+     * </p>
+     *
+     * @return string|false Read data, or false on failure.
+     */
+    public static function bytes (mixed $stream, int $length):string|false {
+
+        return fread($stream, $length);
+
+    }
+
+    /**
+     * ### Reads a line from a stream
+     *
+     * Reads data until a newline, the specified length, or the end of the stream is reached.
+     * @since 1.0.0
+     *
+     * @param resource $stream <p>
+     * Stream resource to read from.
+     * </p>
+     * @param null|positive-int $length [optional] <p>
+     * Maximum read length, including space for the terminating byte.
+     * </p>
+     *
+     * @return string|false Read line, or false on failure.
+     */
+    public static function lineNative (mixed $stream, ?int $length = null):string|false {
+
+        return fgets($stream, $length);
+
+    }
+
+    /**
+     * ### Reads a character from a stream
+     *
+     * Reads a single byte from the current stream position.
+     * @since 1.0.0
+     *
+     * @param resource $stream <p>
+     * Stream resource to read from.
+     * </p>
+     *
+     * @return string|false Single-byte string, or false on failure.
+     */
+    public static function character (mixed $stream):string|false {
+
+        return fgetc($stream);
+
+    }
+
+    /**
+     * ### Outputs all remaining data from a stream
+     *
+     * Reads from the current stream position until EOF and writes the data directly to the output.
+     * @since 1.0.0
+     *
+     * @param resource $stream <p>
+     * Stream resource to read from.
+     * </p>
+     *
+     * @return int Number of bytes written to the output.
+     */
+    public static function passthrough (mixed $stream):int {
+
+        return fpassthru($stream);
+
+    }
+
+    /**
+     * ### Parses input from a stream according to a format
+     *
+     * Reads a line from the stream and parses its values according to the specified format.
+     * @since 1.0.0
+     *
+     * @param resource $stream <p>
+     * Stream resource to read from.
+     * </p>
+     * @param string $format <p>
+     * Format string containing conversion specifications.
+     * </p>
+     *
+     * @return null|int|list<mixed>|false Parsed values, null if no values are available, or false on failure.
+     */
+    public static function scan (mixed $stream, string $format):null|array|int|false {
+
+        return fscanf($stream, $format);
 
     }
 
