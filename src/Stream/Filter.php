@@ -87,7 +87,7 @@ final readonly class Filter extends NativeRuntime {
      *
      * @return resource|false Filter resource on success, false on failure.
      */
-    public static function prepend (mixed $stream, string $filter_name, FilterFlag $flag, mixed $params = null):mixed {
+    public static function prepend (mixed $stream, string $filter_name, FilterFlag $flag = FilterFlag::READ_WRITE, mixed $params = null):mixed {
 
         return stream_filter_prepend($stream, $filter_name, $flag->value, $params);
 
