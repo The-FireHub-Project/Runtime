@@ -15,6 +15,7 @@ namespace FireHub\Runtime\Stream;
 
 use FireHub\Core\Boundary\Runtime\NativeRuntime;
 
+use function fstat;
 use function stream_get_meta_data;
 use function stream_get_transports;
 
@@ -64,6 +65,26 @@ final readonly class Metadata extends NativeRuntime {
     public static function transports ():array {
 
         return stream_get_transports();
+
+    }
+
+    /**
+     * ### Gets stream resource statistics
+     *
+     * Retrieves information about the resource underlying the stream.
+     *
+     * The returned array may contain a device, inode, mode, size, timestamps, and other filesystem-related information.
+     * @since 1.0.0
+     *
+     * @param resource $stream <p>
+     * Stream resource.
+     * </p>
+     *
+     * @return array<string|int, int>|false Stream statistics, or false on failure.
+     */
+    public static function statistics (mixed $stream):array|false {
+
+        return fstat($stream);
 
     }
 
