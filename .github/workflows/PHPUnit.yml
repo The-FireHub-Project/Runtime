@@ -10,8 +10,6 @@ jobs:
     uses: The-FireHub-Project/.github/.github/workflows/RunCommandOnMatrix.yml@master
     with:
       title: "Run PHPUnit"
-      phpVersions: ${{ vars.PHP_VERSIONS }}
-      phpExtensions: ${{ vars.PHP_EXTENSIONS }}
       tools: "phpunit:13.x"
       command: "phpunit"
     secrets:

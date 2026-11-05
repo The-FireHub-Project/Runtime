@@ -61,7 +61,10 @@
       "layer": "runtime",
       "edition": "standard",
       "role": "execution",
-      "criticality": "medium"
+      "criticality": "medium",
+      "ci": {
+        "php-versions": ["8.5"]
+      }
     }
   }
 }
