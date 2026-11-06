@@ -18,17 +18,21 @@ use FireHub\Runtime\Hash\Algorithm;
 use FireHub\Runtime\Exception\ {
     EmptyHashKeyException, HashByteLengthException, HashIterationException
 };
-use SensitiveParameter, Throwable;
+use HashContext, SensitiveParameter, Throwable;
 
 use function hash;
 use function hash_algos;
+use function hash_copy;
 use function hash_equals;
 use function hash_file;
+use function hash_final;
 use function hash_hkdf;
 use function hash_hmac;
 use function hash_hmac_algos;
 use function hash_hmac_file;
+use function hash_init;
 use function hash_pbkdf2;
+use function hash_update;
 
 /**
  * ### PHP Runtime Hash Utilities
@@ -295,6 +299,80 @@ final readonly class Hash extends NativeRuntime {
 
             throw new HashByteLengthException($e->getMessage());
         }
+
+    }
+
+    /**
+     * ### Initializes an incremental hashing context
+     * @since 1.0.0
+     *
+     * @param \FireHub\Runtime\Hash\Algorithm $algorithm
+     * Hashing algorithm.
+     *
+     * @return HashContext Initialized hashing context.
+     */
+    public static function initialize (Algorithm $algorithm):HashContext {
+
+        return hash_init($algorithm->value);
+
+    }
+
+    /**
+     * ### Updates an incremental hashing context
+     * @since 1.0.0
+     *
+     * @param HashContext $context
+     * Hashing context.
+     *
+     * @param string $data
+     * Data to include in the hash.
+     *
+     * @return void
+     */
+    public static function update (HashContext $context, string $data):void {
+
+        hash_update($context, $data);
+
+    }
+
+    /**
+     * ### Copies a hashing context
+     *
+     * Creates an independent copy of an existing incremental hashing context.
+     *
+     * The copied context preserves the current hashing state and can be updated or finalized independently of the
+     * original context.
+     * @since 1.0.0
+     *
+     * @param HashContext $context <p>
+     * The hashing context to copy.
+     * </p>
+     *
+     * @return \HashContext A new hashing context containing the same state.
+     */
+    public static function copy (HashContext $context):HashContext {
+
+        return hash_copy($context);
+
+    }
+
+    /**
+     * ### Gets the current hash digest without finalizing the context
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Runtime\Hash::copy() To create a copy of the context.
+     *
+     * @param HashContext $context
+     * Hashing context.
+     *
+     * @param bool $binary [optional]
+     * Whether to return the raw binary digest.
+     *
+     * @return non-empty-string Hash digest.
+     */
+    public static function digest (HashContext $context, bool $binary = false):string {
+
+        return hash_final(self::copy($context), $binary);
 
     }
 
