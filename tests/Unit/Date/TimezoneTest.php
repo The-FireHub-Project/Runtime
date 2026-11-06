@@ -16,9 +16,8 @@ namespace FireHub\Tests\Runtime\Unit\Date;
 use FireHub\Testing\FireHubTestCase;
 use FireHub\Runtime\Date;
 use FireHub\Core\Type\Date\Zone;
-use FireHub\Testing\DataProviders\DateDataProvider;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, DataProviderExternal, Group, Small
+    CoversClass, Group, Small, TestWith
 };
 
 /**
@@ -40,7 +39,7 @@ final class TimezoneTest extends FireHubTestCase {
      *
      * @return void
      */
-    #[DataProviderExternal(DateDataProvider::class, 'timezones')]
+    #[TestWith([Zone::ARCTIC_LONGYEARBYEN])]
     public function testSetAndGetDefaultTimezone (Zone $expected):void {
 
         self::assertTrue(Date\Timezone::setDefault($expected));

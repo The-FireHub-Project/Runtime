@@ -13,8 +13,6 @@ jobs:
   build:
     uses: The-FireHub-Project/.github/.github/workflows/Codecov.yml@master
     with:
-      phpVersion: '8.5'
-      phpExtensions: ${{ vars.PHP_EXTENSIONS }}
       tools: "phpunit:13.x"
       suites: '["unit"]'
     secrets:
