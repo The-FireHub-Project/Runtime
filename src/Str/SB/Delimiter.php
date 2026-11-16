@@ -78,9 +78,11 @@ final readonly class Delimiter extends NativeRuntime {
      *
      * @throws \FireHub\Runtime\Exception\EmptySeparatorException If the separator is an empty string.
      *
-     * @return ($string is empty ? list<string> : non-empty-list<string>) If a delimiter contains a value not contained
-     * in string, and a negative limit is used, then an empty array will be returned. For any other limit, an array
-     * containing a string will be returned.
+     * @return ($limit is negative-int
+     *     ? list<string>
+     *     : ($string is '' ? array{''} : non-empty-list<string>)
+     * ) If a delimiter contains a value not contained in string, and a negative limit is used, then an empty array
+     * will be returned. For any other limit, an array containing a string will be returned.
      */
     public static function explode (string $string, string $separator, int $limit = IntegerLimits::MAX):array {
 
