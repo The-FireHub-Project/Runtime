@@ -381,12 +381,16 @@ final readonly class File extends NativeRuntime {
             ]
         );
 
-        return file_put_contents($path, $data, match (true) {
+        $written = file_put_contents($path, $data, match (true) {
             $append && $lock => FILE_APPEND | LOCK_EX,
             $append => FILE_APPEND,
             $lock => LOCK_EX,
             default => 0
-        }) ?: throw new FileWriteException;
+        });
+
+        return $written !== false
+            ? $written
+            : throw new FileWriteException;
 
     }
 
